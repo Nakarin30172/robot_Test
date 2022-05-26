@@ -1,0 +1,1062 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 5.0.1 (Python 3.7.4 on win32)" generated="20220526 17:31:04.572" rpa="false" schemaversion="3">
+<suite id="s1" name="Tc 01" source="D:\eke\robotfr\week3\Testcases\Tc_01.robot">
+<test id="s1-t1" name="TC_01" line="8">
+<kw name="Open ebay website" library="common">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${browser['url']}</arg>
+<arg>${browser['type']}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20220526 17:31:05.106" level="INFO">Opening browser 'chrome' to base url 'https://www.ebay.com'.</msg>
+<status status="PASS" starttime="20220526 17:31:05.103" endtime="20220526 17:31:13.311"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${main_content}</arg>
+<arg>30s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20220526 17:31:13.311" endtime="20220526 17:31:13.419"/>
+</kw>
+<status status="PASS" starttime="20220526 17:31:05.102" endtime="20220526 17:31:13.419"/>
+</kw>
+<kw name="Search product by Keyword" library="home_page">
+<arg>${tc_01['search_keyword']}</arg>
+<kw name="Input text by locator" library="common">
+<arg>${search_text}</arg>
+<arg>${keyword}</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>${keyword}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220526 17:31:13.444" level="INFO">Typing text 'speaker' into text field 'id=gh-ac'.</msg>
+<status status="PASS" starttime="20220526 17:31:13.439" endtime="20220526 17:31:13.670"/>
+</kw>
+<status status="PASS" starttime="20220526 17:31:13.435" endtime="20220526 17:31:13.670"/>
+</kw>
+<kw name="Click element by locator" library="common">
+<arg>${search_button}</arg>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${locator}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220526 17:31:13.672" level="INFO">Clicking element 'id=gh-btn'.</msg>
+<status status="PASS" starttime="20220526 17:31:13.671" endtime="20220526 17:31:16.625"/>
+</kw>
+<status status="PASS" starttime="20220526 17:31:13.671" endtime="20220526 17:31:16.625"/>
+</kw>
+<status status="PASS" starttime="20220526 17:31:13.426" endtime="20220526 17:31:16.626"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>xpath=//div[@id='mainContent']//li[contains(@class,'s-item')]</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20220526 17:31:16.627" endtime="20220526 17:31:16.806"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${result}</var>
+<arg>//h1[@class='srp-controls__count-heading']//span[2]</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20220526 17:31:16.879" level="INFO">${result} = speaker</msg>
+<status status="PASS" starttime="20220526 17:31:16.807" endtime="20220526 17:31:16.879"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>speaker</arg>
+<arg>${result}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20220526 17:31:16.880" endtime="20220526 17:31:16.882"/>
+</kw>
+<kw name="Get WebElements" library="SeleniumLibrary">
+<var>${all_products}</var>
+<arg>//div[@id='srp-river-results']//h3[@class='s-item__title']</arg>
+<doc>Returns a list of WebElement objects matching the ``locator``.</doc>
+<msg timestamp="20220526 17:31:16.928" level="INFO">${all_products} = [&lt;selenium.webdriver.remote.webelement.WebElement (session="702a10ee735017b4725d49ea14c371ef", element="4a404706-8336-469e-b1ff-01dd13fd570f")&gt;, &lt;selenium.webdriver.remote.webelement.WebElement (sessi...</msg>
+<status status="PASS" starttime="20220526 17:31:16.883" endtime="20220526 17:31:16.929"/>
+</kw>
+<for flavor="IN">
+<var>${product}</var>
+<value>@{all_products}</value>
+<iter>
+<var name="${product}">&lt;selenium.webdriver.remote.webelement.WebElement (session="702a10ee735017b4725d49ea14c371ef", element="4a404706-8336-469e-b1ff-01dd13fd570f")&gt;</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${each_product}</var>
+<arg>${product}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20220526 17:31:20.133" level="INFO">${each_product} = Jbl speaker-flip 6 portable bluetooth, ipx7, stereo, bass, exterior</msg>
+<status status="PASS" starttime="20220526 17:31:16.931" endtime="20220526 17:31:20.133"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${each_product}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220526 17:31:20.133" endtime="20220526 17:31:20.135"/>
+</kw>
+<status status="PASS" starttime="20220526 17:31:16.930" endtime="20220526 17:31:20.135"/>
+</iter>
+<iter>
+<var name="${product}">&lt;selenium.webdriver.remote.webelement.WebElement (session="702a10ee735017b4725d49ea14c371ef", element="a63fe1a5-b02b-4ff1-ae3c-a92081f0612d")&gt;</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${each_product}</var>
+<arg>${product}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20220526 17:31:20.178" level="INFO">${each_product} = ANKER Bluetooth with Stereo Soundcore 2 /3 Motion+ Titanium IPX7 Bass Speaker</msg>
+<status status="PASS" starttime="20220526 17:31:20.136" endtime="20220526 17:31:20.178"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${each_product}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220526 17:31:20.178" endtime="20220526 17:31:20.179"/>
+</kw>
+<status status="PASS" starttime="20220526 17:31:20.135" endtime="20220526 17:31:20.179"/>
+</iter>
+<iter>
+<var name="${product}">&lt;selenium.webdriver.remote.webelement.WebElement (session="702a10ee735017b4725d49ea14c371ef", element="d431acb3-719f-4b33-bad2-69f587a8bb8c")&gt;</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${each_product}</var>
+<arg>${product}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20220526 17:31:20.229" level="INFO">${each_product} = NEW LISTINGLG docking speaker</msg>
+<status status="PASS" starttime="20220526 17:31:20.180" endtime="20220526 17:31:20.229"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${each_product}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220526 17:31:20.229" endtime="20220526 17:31:20.231"/>
+</kw>
+<status status="PASS" starttime="20220526 17:31:20.180" endtime="20220526 17:31:20.231"/>
+</iter>
+<iter>
+<var name="${product}">&lt;selenium.webdriver.remote.webelement.WebElement (session="702a10ee735017b4725d49ea14c371ef", element="2a76221c-1dec-41f8-a5cc-f365212eb310")&gt;</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${each_product}</var>
+<arg>${product}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20220526 17:31:20.263" level="INFO">${each_product} = NEW LISTINGI Joy Bluetooth Bath Bomb Speaker</msg>
+<status status="PASS" starttime="20220526 17:31:20.232" endtime="20220526 17:31:20.264"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${each_product}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220526 17:31:20.264" endtime="20220526 17:31:20.265"/>
+</kw>
+<status status="PASS" starttime="20220526 17:31:20.231" endtime="20220526 17:31:20.266"/>
+</iter>
+<iter>
+<var name="${product}">&lt;selenium.webdriver.remote.webelement.WebElement (session="702a10ee735017b4725d49ea14c371ef", element="0ee4f9cb-691c-4269-a65f-bcc581227636")&gt;</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${each_product}</var>
+<arg>${product}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20220526 17:31:20.298" level="INFO">${each_product} = NEW LISTINGMini Portable 3.5mm Stereo Speaker Music Sound Amplifier Portable *1 SALE</msg>
+<status status="PASS" starttime="20220526 17:31:20.266" endtime="20220526 17:31:20.298"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${each_product}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220526 17:31:20.312" endtime="20220526 17:31:20.314"/>
+</kw>
+<status status="PASS" starttime="20220526 17:31:20.266" endtime="20220526 17:31:20.314"/>
+</iter>
+<iter>
+<var name="${product}">&lt;selenium.webdriver.remote.webelement.WebElement (session="702a10ee735017b4725d49ea14c371ef", element="bdee4d43-8c36-4dbb-9ef0-3a13f90f4c19")&gt;</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${each_product}</var>
+<arg>${product}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20220526 17:31:20.495" level="INFO">${each_product} = NEW LISTINGBose Soundlink Mini 2 Bluetooth Speaker Black/Very Good Condition/Original Packaging</msg>
+<status status="PASS" starttime="20220526 17:31:20.315" endtime="20220526 17:31:20.495"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${each_product}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220526 17:31:20.496" endtime="20220526 17:31:20.497"/>
+</kw>
+<status status="PASS" starttime="20220526 17:31:20.314" endtime="20220526 17:31:20.497"/>
+</iter>
+<iter>
+<var name="${product}">&lt;selenium.webdriver.remote.webelement.WebElement (session="702a10ee735017b4725d49ea14c371ef", element="9e30556d-99b6-4c07-aed7-2b8339f7d5d6")&gt;</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${each_product}</var>
+<arg>${product}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20220526 17:31:20.542" level="INFO">${each_product} = NEU Portable Bluetooth Speaker Wireless Stereo Waterproof USB/TF/AUX FM U5B9</msg>
+<status status="PASS" starttime="20220526 17:31:20.498" endtime="20220526 17:31:20.542"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${each_product}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220526 17:31:20.542" endtime="20220526 17:31:20.544"/>
+</kw>
+<status status="PASS" starttime="20220526 17:31:20.497" endtime="20220526 17:31:20.544"/>
+</iter>
+<iter>
+<var name="${product}">&lt;selenium.webdriver.remote.webelement.WebElement (session="702a10ee735017b4725d49ea14c371ef", element="914ab842-fde4-4961-84ef-01122b243fb8")&gt;</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${each_product}</var>
+<arg>${product}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20220526 17:31:20.644" level="INFO">${each_product} = Bluetooth Mini Speaker Wireless Stereo TF/FM Radio Gift Waterproof Daily Use</msg>
+<status status="PASS" starttime="20220526 17:31:20.545" endtime="20220526 17:31:20.644"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${each_product}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220526 17:31:20.644" endtime="20220526 17:31:20.646"/>
+</kw>
+<status status="PASS" starttime="20220526 17:31:20.545" endtime="20220526 17:31:20.646"/>
+</iter>
+<iter>
+<var name="${product}">&lt;selenium.webdriver.remote.webelement.WebElement (session="702a10ee735017b4725d49ea14c371ef", element="1c6daf41-f4b0-41be-8ee2-949f678fba4b")&gt;</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${each_product}</var>
+<arg>${product}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20220526 17:31:20.678" level="INFO">${each_product} = NEW LISTINGSony SRS-XB13 - Compact &amp; Portable Waterproof Wireless Bluetooth speaker SL12</msg>
+<status status="PASS" starttime="20220526 17:31:20.647" endtime="20220526 17:31:20.678"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${each_product}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220526 17:31:20.678" endtime="20220526 17:31:20.679"/>
+</kw>
+<status status="PASS" starttime="20220526 17:31:20.646" endtime="20220526 17:31:20.679"/>
+</iter>
+<iter>
+<var name="${product}">&lt;selenium.webdriver.remote.webelement.WebElement (session="702a10ee735017b4725d49ea14c371ef", element="34cac22c-a3de-473c-bd33-b9e11a21cfce")&gt;</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${each_product}</var>
+<arg>${product}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20220526 17:31:20.714" level="INFO">${each_product} = NEW LISTINGJBL FLIP 4 REPLACEMENT SPEAKER</msg>
+<status status="PASS" starttime="20220526 17:31:20.680" endtime="20220526 17:31:20.714"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${each_product}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220526 17:31:20.714" endtime="20220526 17:31:20.716"/>
+</kw>
+<status status="PASS" starttime="20220526 17:31:20.679" endtime="20220526 17:31:20.716"/>
+</iter>
+<iter>
+<var name="${product}">&lt;selenium.webdriver.remote.webelement.WebElement (session="702a10ee735017b4725d49ea14c371ef", element="cfb68fff-e027-44ce-961c-7d0d79578b8e")&gt;</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${each_product}</var>
+<arg>${product}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20220526 17:31:20.746" level="INFO">${each_product} = NEW LISTINGLogitech Ultimate Ears Wonderboom Waterproof Bluetooth portable system Speaker </msg>
+<status status="PASS" starttime="20220526 17:31:20.717" endtime="20220526 17:31:20.746"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${each_product}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220526 17:31:20.746" endtime="20220526 17:31:20.747"/>
+</kw>
+<status status="PASS" starttime="20220526 17:31:20.717" endtime="20220526 17:31:20.747"/>
+</iter>
+<iter>
+<var name="${product}">&lt;selenium.webdriver.remote.webelement.WebElement (session="702a10ee735017b4725d49ea14c371ef", element="1c3c142d-fc0a-4f7b-82b3-9570c06bb0fe")&gt;</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${each_product}</var>
+<arg>${product}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20220526 17:31:20.779" level="INFO">${each_product} = 40W Bluetooth Speaker Portable Wireless Stereo Bass USB/TF/FM Radio/Phone LOUD</msg>
+<status status="PASS" starttime="20220526 17:31:20.749" endtime="20220526 17:31:20.779"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${each_product}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220526 17:31:20.780" endtime="20220526 17:31:20.782"/>
+</kw>
+<status status="PASS" starttime="20220526 17:31:20.748" endtime="20220526 17:31:20.782"/>
+</iter>
+<iter>
+<var name="${product}">&lt;selenium.webdriver.remote.webelement.WebElement (session="702a10ee735017b4725d49ea14c371ef", element="d5292e0a-943b-4b62-a136-f6be0b7466f2")&gt;</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${each_product}</var>
+<arg>${product}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20220526 17:31:20.824" level="INFO">${each_product} = NEW LISTINGRechargeable 4x18650 Series Battery Box,Portable Battery,Container</msg>
+<status status="PASS" starttime="20220526 17:31:20.783" endtime="20220526 17:31:20.824"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${each_product}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220526 17:31:20.825" endtime="20220526 17:31:20.828"/>
+</kw>
+<status status="PASS" starttime="20220526 17:31:20.782" endtime="20220526 17:31:20.828"/>
+</iter>
+<iter>
+<var name="${product}">&lt;selenium.webdriver.remote.webelement.WebElement (session="702a10ee735017b4725d49ea14c371ef", element="97369b8a-87eb-4dfb-a816-6f0f79877402")&gt;</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${each_product}</var>
+<arg>${product}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20220526 17:31:20.872" level="INFO">${each_product} = Cash Bluetooth Portable 40 w RMS USB mp3 Speaker Waterproof Smartphone Music</msg>
+<status status="PASS" starttime="20220526 17:31:20.829" endtime="20220526 17:31:20.872"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${each_product}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220526 17:31:20.873" endtime="20220526 17:31:20.874"/>
+</kw>
+<status status="PASS" starttime="20220526 17:31:20.828" endtime="20220526 17:31:20.874"/>
+</iter>
+<iter>
+<var name="${product}">&lt;selenium.webdriver.remote.webelement.WebElement (session="702a10ee735017b4725d49ea14c371ef", element="7be28e59-b903-4a41-96f2-7a97fda0885b")&gt;</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${each_product}</var>
+<arg>${product}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20220526 17:31:20.920" level="INFO">${each_product} = Bose SoundLink Color Bluetooth Speaker II, Certified Refurbished</msg>
+<status status="PASS" starttime="20220526 17:31:20.875" endtime="20220526 17:31:20.920"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${each_product}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220526 17:31:20.920" endtime="20220526 17:31:20.922"/>
+</kw>
+<status status="PASS" starttime="20220526 17:31:20.874" endtime="20220526 17:31:20.922"/>
+</iter>
+<iter>
+<var name="${product}">&lt;selenium.webdriver.remote.webelement.WebElement (session="702a10ee735017b4725d49ea14c371ef", element="3ac1f226-81b3-40af-82de-9290b399521c")&gt;</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${each_product}</var>
+<arg>${product}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20220526 17:31:20.962" level="INFO">${each_product} = Cash Bluetooth Portable Speaker Speaker Cases Waterproof boomboxes</msg>
+<status status="PASS" starttime="20220526 17:31:20.923" endtime="20220526 17:31:20.962"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${each_product}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220526 17:31:20.962" endtime="20220526 17:31:20.964"/>
+</kw>
+<status status="PASS" starttime="20220526 17:31:20.922" endtime="20220526 17:31:20.964"/>
+</iter>
+<iter>
+<var name="${product}">&lt;selenium.webdriver.remote.webelement.WebElement (session="702a10ee735017b4725d49ea14c371ef", element="000a39b6-1b3a-4b49-a5f1-673fb5e5d7bc")&gt;</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${each_product}</var>
+<arg>${product}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20220526 17:31:21.005" level="INFO">${each_product} = NEW LISTINGBose SoundLink III Sound Link 3 Bluetooth Portable Used Speaker</msg>
+<status status="PASS" starttime="20220526 17:31:20.965" endtime="20220526 17:31:21.005"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${each_product}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220526 17:31:21.005" endtime="20220526 17:31:21.007"/>
+</kw>
+<status status="PASS" starttime="20220526 17:31:20.964" endtime="20220526 17:31:21.007"/>
+</iter>
+<iter>
+<var name="${product}">&lt;selenium.webdriver.remote.webelement.WebElement (session="702a10ee735017b4725d49ea14c371ef", element="69dda3b3-0ee2-48bb-bb66-b088d86b46bc")&gt;</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${each_product}</var>
+<arg>${product}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20220526 17:31:21.044" level="INFO">${each_product} = Cash Bluetooth Portable USB mp3 Speaker Smartphone Tablet Music Speakerphone 40w</msg>
+<status status="PASS" starttime="20220526 17:31:21.008" endtime="20220526 17:31:21.045"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${each_product}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220526 17:31:21.045" endtime="20220526 17:31:21.047"/>
+</kw>
+<status status="PASS" starttime="20220526 17:31:21.007" endtime="20220526 17:31:21.047"/>
+</iter>
+<iter>
+<var name="${product}">&lt;selenium.webdriver.remote.webelement.WebElement (session="702a10ee735017b4725d49ea14c371ef", element="f56ebace-fbd1-48bf-a35a-ba96415ead0c")&gt;</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${each_product}</var>
+<arg>${product}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20220526 17:31:21.092" level="INFO">${each_product} = NEW LISTINGazatom StreetDance Mini i-phone i-pod Docking station</msg>
+<status status="PASS" starttime="20220526 17:31:21.048" endtime="20220526 17:31:21.092"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${each_product}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220526 17:31:21.093" endtime="20220526 17:31:21.094"/>
+</kw>
+<status status="PASS" starttime="20220526 17:31:21.047" endtime="20220526 17:31:21.094"/>
+</iter>
+<iter>
+<var name="${product}">&lt;selenium.webdriver.remote.webelement.WebElement (session="702a10ee735017b4725d49ea14c371ef", element="a4cda1bf-b733-4711-ab6c-b6840e97242f")&gt;</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${each_product}</var>
+<arg>${product}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20220526 17:31:21.128" level="INFO">${each_product} = NEW LISTINGERBAUER ESP18-LI CORDLESS BLUETOOTH SPEAKER - NO BATTERY</msg>
+<status status="PASS" starttime="20220526 17:31:21.095" endtime="20220526 17:31:21.128"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${each_product}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220526 17:31:21.129" endtime="20220526 17:31:21.131"/>
+</kw>
+<status status="PASS" starttime="20220526 17:31:21.095" endtime="20220526 17:31:21.132"/>
+</iter>
+<iter>
+<var name="${product}">&lt;selenium.webdriver.remote.webelement.WebElement (session="702a10ee735017b4725d49ea14c371ef", element="5b0d9dd0-a5d9-4305-b798-bd3654d5cde0")&gt;</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${each_product}</var>
+<arg>${product}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20220526 17:31:21.197" level="INFO">${each_product} = NEW LISTINGEddie Bower iCanister Smartphone Speaker Use A/C + Battery Power PARTIALLY BLOWN</msg>
+<status status="PASS" starttime="20220526 17:31:21.134" endtime="20220526 17:31:21.197"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${each_product}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220526 17:31:21.198" endtime="20220526 17:31:21.205"/>
+</kw>
+<status status="PASS" starttime="20220526 17:31:21.134" endtime="20220526 17:31:21.206"/>
+</iter>
+<iter>
+<var name="${product}">&lt;selenium.webdriver.remote.webelement.WebElement (session="702a10ee735017b4725d49ea14c371ef", element="3e6fc90e-5f86-4600-b315-5f4ef6dcd3b5")&gt;</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${each_product}</var>
+<arg>${product}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20220526 17:31:21.259" level="INFO">${each_product} = NEW LISTINGcolor changing bluetooth speaker</msg>
+<status status="PASS" starttime="20220526 17:31:21.207" endtime="20220526 17:31:21.259"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${each_product}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220526 17:31:21.260" endtime="20220526 17:31:21.261"/>
+</kw>
+<status status="PASS" starttime="20220526 17:31:21.207" endtime="20220526 17:31:21.261"/>
+</iter>
+<iter>
+<var name="${product}">&lt;selenium.webdriver.remote.webelement.WebElement (session="702a10ee735017b4725d49ea14c371ef", element="c25f658e-0c69-4a2d-b1c1-3879cacd3bdd")&gt;</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${each_product}</var>
+<arg>${product}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20220526 17:31:21.328" level="INFO">${each_product} = NEW LISTINGHuawei Sound Joy Bluetooth Speaker</msg>
+<status status="PASS" starttime="20220526 17:31:21.272" endtime="20220526 17:31:21.329"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${each_product}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220526 17:31:21.329" endtime="20220526 17:31:21.331"/>
+</kw>
+<status status="PASS" starttime="20220526 17:31:21.262" endtime="20220526 17:31:21.331"/>
+</iter>
+<iter>
+<var name="${product}">&lt;selenium.webdriver.remote.webelement.WebElement (session="702a10ee735017b4725d49ea14c371ef", element="a501474e-62b0-45b8-9c2d-9e768ec10294")&gt;</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${each_product}</var>
+<arg>${product}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20220526 17:31:21.381" level="INFO">${each_product} = NEW LISTINGJBL ON TOUR PORTABLE SPEAKER BLACK</msg>
+<status status="PASS" starttime="20220526 17:31:21.332" endtime="20220526 17:31:21.381"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${each_product}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220526 17:31:21.381" endtime="20220526 17:31:21.383"/>
+</kw>
+<status status="PASS" starttime="20220526 17:31:21.331" endtime="20220526 17:31:21.383"/>
+</iter>
+<iter>
+<var name="${product}">&lt;selenium.webdriver.remote.webelement.WebElement (session="702a10ee735017b4725d49ea14c371ef", element="81e3a21f-1b1f-4c7e-b980-cdd65eff7003")&gt;</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${each_product}</var>
+<arg>${product}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20220526 17:31:21.420" level="INFO">${each_product} = JBL Flip 5 Waterproof Portable Rechargeable Bluetooth Speaker- Blue *FLIP5BLU</msg>
+<status status="PASS" starttime="20220526 17:31:21.384" endtime="20220526 17:31:21.420"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${each_product}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220526 17:31:21.421" endtime="20220526 17:31:21.422"/>
+</kw>
+<status status="PASS" starttime="20220526 17:31:21.384" endtime="20220526 17:31:21.422"/>
+</iter>
+<iter>
+<var name="${product}">&lt;selenium.webdriver.remote.webelement.WebElement (session="702a10ee735017b4725d49ea14c371ef", element="09c2f95c-e42f-4f56-b9b2-878ef58bd357")&gt;</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${each_product}</var>
+<arg>${product}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20220526 17:31:21.488" level="INFO">${each_product} = Wireless Stereo Retro Speaker BLE 5.0 Vintage Speaker for Kitchen Party Home</msg>
+<status status="PASS" starttime="20220526 17:31:21.423" endtime="20220526 17:31:21.488"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${each_product}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220526 17:31:21.489" endtime="20220526 17:31:21.490"/>
+</kw>
+<status status="PASS" starttime="20220526 17:31:21.423" endtime="20220526 17:31:21.490"/>
+</iter>
+<iter>
+<var name="${product}">&lt;selenium.webdriver.remote.webelement.WebElement (session="702a10ee735017b4725d49ea14c371ef", element="eae098c5-0d3d-4125-82f7-8be93a978473")&gt;</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${each_product}</var>
+<arg>${product}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20220526 17:31:21.548" level="INFO">${each_product} = NEW LISTINGBose SoundWear Companion Portable Bluetooth Wearable Neck Speaker Used Black</msg>
+<status status="PASS" starttime="20220526 17:31:21.491" endtime="20220526 17:31:21.548"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${each_product}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220526 17:31:21.548" endtime="20220526 17:31:21.550"/>
+</kw>
+<status status="PASS" starttime="20220526 17:31:21.491" endtime="20220526 17:31:21.550"/>
+</iter>
+<iter>
+<var name="${product}">&lt;selenium.webdriver.remote.webelement.WebElement (session="702a10ee735017b4725d49ea14c371ef", element="bfa84c62-ab80-428f-8f67-75f251d68f14")&gt;</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${each_product}</var>
+<arg>${product}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20220526 17:31:21.615" level="INFO">${each_product} = NEW LISTINGUltimate Ears BOOM 3 Blue Portable Waterproof Bluetooth Speaker - 984-001374</msg>
+<status status="PASS" starttime="20220526 17:31:21.551" endtime="20220526 17:31:21.615"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${each_product}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220526 17:31:21.616" endtime="20220526 17:31:21.617"/>
+</kw>
+<status status="PASS" starttime="20220526 17:31:21.551" endtime="20220526 17:31:21.618"/>
+</iter>
+<iter>
+<var name="${product}">&lt;selenium.webdriver.remote.webelement.WebElement (session="702a10ee735017b4725d49ea14c371ef", element="8c01e07e-66c0-4cc5-a64b-b16fcb1ebe5e")&gt;</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${each_product}</var>
+<arg>${product}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20220526 17:31:21.682" level="INFO">${each_product} = Wireless Mini Car Bluetooth Speaker Hi-Fi Stereo Super Bass Portable Usb Stereo</msg>
+<status status="PASS" starttime="20220526 17:31:21.619" endtime="20220526 17:31:21.682"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${each_product}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220526 17:31:21.683" endtime="20220526 17:31:21.684"/>
+</kw>
+<status status="PASS" starttime="20220526 17:31:21.618" endtime="20220526 17:31:21.684"/>
+</iter>
+<iter>
+<var name="${product}">&lt;selenium.webdriver.remote.webelement.WebElement (session="702a10ee735017b4725d49ea14c371ef", element="1b3be71d-20f9-4858-9386-8cc936aadd61")&gt;</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${each_product}</var>
+<arg>${product}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20220526 17:31:21.726" level="INFO">${each_product} = NEW LISTINGPolaroid Modern Deco Bluetooth Wireless Speaker</msg>
+<status status="PASS" starttime="20220526 17:31:21.686" endtime="20220526 17:31:21.726"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${each_product}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220526 17:31:21.727" endtime="20220526 17:31:21.728"/>
+</kw>
+<status status="PASS" starttime="20220526 17:31:21.685" endtime="20220526 17:31:21.728"/>
+</iter>
+<iter>
+<var name="${product}">&lt;selenium.webdriver.remote.webelement.WebElement (session="702a10ee735017b4725d49ea14c371ef", element="8d21265b-d137-4c01-8fa3-b6d618446505")&gt;</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${each_product}</var>
+<arg>${product}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20220526 17:31:21.761" level="INFO">${each_product} = Rugged bluetooth waterproof usb speaker - Various Colours with Carabiner</msg>
+<status status="PASS" starttime="20220526 17:31:21.729" endtime="20220526 17:31:21.762"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${each_product}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220526 17:31:21.762" endtime="20220526 17:31:21.763"/>
+</kw>
+<status status="PASS" starttime="20220526 17:31:21.729" endtime="20220526 17:31:21.763"/>
+</iter>
+<iter>
+<var name="${product}">&lt;selenium.webdriver.remote.webelement.WebElement (session="702a10ee735017b4725d49ea14c371ef", element="a8030efd-0a09-4a86-86d9-9bbe8cd21f62")&gt;</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${each_product}</var>
+<arg>${product}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20220526 17:31:21.808" level="INFO">${each_product} = Bose SoundLink Mini II Special Edition, Certified Refurbished</msg>
+<status status="PASS" starttime="20220526 17:31:21.774" endtime="20220526 17:31:21.808"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${each_product}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220526 17:31:21.809" endtime="20220526 17:31:21.810"/>
+</kw>
+<status status="PASS" starttime="20220526 17:31:21.773" endtime="20220526 17:31:21.810"/>
+</iter>
+<iter>
+<var name="${product}">&lt;selenium.webdriver.remote.webelement.WebElement (session="702a10ee735017b4725d49ea14c371ef", element="7b11a9c2-f405-4457-8a4a-abf788970575")&gt;</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${each_product}</var>
+<arg>${product}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20220526 17:31:21.840" level="INFO">${each_product} = NEW LISTINGPortable 3.5mm AUX Pillow mini Speaker For MP3 MP4 New CellPhone Player J9O1</msg>
+<status status="PASS" starttime="20220526 17:31:21.811" endtime="20220526 17:31:21.840"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${each_product}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220526 17:31:21.841" endtime="20220526 17:31:21.842"/>
+</kw>
+<status status="PASS" starttime="20220526 17:31:21.810" endtime="20220526 17:31:21.843"/>
+</iter>
+<iter>
+<var name="${product}">&lt;selenium.webdriver.remote.webelement.WebElement (session="702a10ee735017b4725d49ea14c371ef", element="0ce986bc-3a79-41e9-a6c9-59beca286ddb")&gt;</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${each_product}</var>
+<arg>${product}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20220526 17:31:21.873" level="INFO">${each_product} = NEW LISTINGBluetooth Round Speaker. Spectech. Kia Motor Company. Music. Electronics. Music</msg>
+<status status="PASS" starttime="20220526 17:31:21.844" endtime="20220526 17:31:21.873"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${each_product}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220526 17:31:21.873" endtime="20220526 17:31:21.875"/>
+</kw>
+<status status="PASS" starttime="20220526 17:31:21.843" endtime="20220526 17:31:21.875"/>
+</iter>
+<iter>
+<var name="${product}">&lt;selenium.webdriver.remote.webelement.WebElement (session="702a10ee735017b4725d49ea14c371ef", element="b9a16177-b3e1-485f-8e62-9fefd5bc5dbe")&gt;</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${each_product}</var>
+<arg>${product}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20220526 17:31:21.904" level="INFO">${each_product} = Bluetooth Speaker Panda with Remote Shutter Release White 4.3x4.5cm</msg>
+<status status="PASS" starttime="20220526 17:31:21.877" endtime="20220526 17:31:21.904"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${each_product}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220526 17:31:21.905" endtime="20220526 17:31:21.907"/>
+</kw>
+<status status="PASS" starttime="20220526 17:31:21.876" endtime="20220526 17:31:21.907"/>
+</iter>
+<iter>
+<var name="${product}">&lt;selenium.webdriver.remote.webelement.WebElement (session="702a10ee735017b4725d49ea14c371ef", element="dbd6d221-a16a-4c9c-bd35-2830e88f47a9")&gt;</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${each_product}</var>
+<arg>${product}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20220526 17:31:21.938" level="INFO">${each_product} = NEW LISTINGWireless Bluetooth Speaker 6D Surround Sound Dual Subwoofer Display Support FM</msg>
+<status status="PASS" starttime="20220526 17:31:21.909" endtime="20220526 17:31:21.938"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${each_product}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220526 17:31:21.939" endtime="20220526 17:31:21.941"/>
+</kw>
+<status status="PASS" starttime="20220526 17:31:21.908" endtime="20220526 17:31:21.942"/>
+</iter>
+<iter>
+<var name="${product}">&lt;selenium.webdriver.remote.webelement.WebElement (session="702a10ee735017b4725d49ea14c371ef", element="c9ebfb47-1eea-4c6c-af58-cbe31d7d67a4")&gt;</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${each_product}</var>
+<arg>${product}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20220526 17:31:21.980" level="INFO">${each_product} = NEW LISTINGJBL Charge 3 Portable Bluetooth Speaker - Black</msg>
+<status status="PASS" starttime="20220526 17:31:21.943" endtime="20220526 17:31:21.980"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${each_product}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220526 17:31:21.981" endtime="20220526 17:31:21.982"/>
+</kw>
+<status status="PASS" starttime="20220526 17:31:21.942" endtime="20220526 17:31:21.982"/>
+</iter>
+<iter>
+<var name="${product}">&lt;selenium.webdriver.remote.webelement.WebElement (session="702a10ee735017b4725d49ea14c371ef", element="7c41a1a6-6d0a-4b81-b86c-a5b4bdeede4f")&gt;</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${each_product}</var>
+<arg>${product}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20220526 17:31:22.017" level="INFO">${each_product} = NEW LISTINGBluetooth Speaker Portable Column High Power 40W Waterproof Super Bass Stereo</msg>
+<status status="PASS" starttime="20220526 17:31:21.983" endtime="20220526 17:31:22.018"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${each_product}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220526 17:31:22.018" endtime="20220526 17:31:22.020"/>
+</kw>
+<status status="PASS" starttime="20220526 17:31:21.983" endtime="20220526 17:31:22.020"/>
+</iter>
+<iter>
+<var name="${product}">&lt;selenium.webdriver.remote.webelement.WebElement (session="702a10ee735017b4725d49ea14c371ef", element="cadfec44-bce6-4154-8d8f-441bb62305e3")&gt;</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${each_product}</var>
+<arg>${product}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20220526 17:31:22.055" level="INFO">${each_product} = Mini USB Bluetooth Speaker Case water Resistant Speaker WiFi Radio</msg>
+<status status="PASS" starttime="20220526 17:31:22.021" endtime="20220526 17:31:22.056"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${each_product}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220526 17:31:22.056" endtime="20220526 17:31:22.057"/>
+</kw>
+<status status="PASS" starttime="20220526 17:31:22.020" endtime="20220526 17:31:22.057"/>
+</iter>
+<iter>
+<var name="${product}">&lt;selenium.webdriver.remote.webelement.WebElement (session="702a10ee735017b4725d49ea14c371ef", element="7b8c0ad0-f25a-47d2-bcd8-35b89f5c3fc0")&gt;</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${each_product}</var>
+<arg>${product}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20220526 17:31:22.088" level="INFO">${each_product} = NEW LISTINGNew Waterproof Plug Rubber Cover for Logitech BOOM2 MEGABOOM Bluetooth Speaker #</msg>
+<status status="PASS" starttime="20220526 17:31:22.058" endtime="20220526 17:31:22.088"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${each_product}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220526 17:31:22.088" endtime="20220526 17:31:22.097"/>
+</kw>
+<status status="PASS" starttime="20220526 17:31:22.057" endtime="20220526 17:31:22.097"/>
+</iter>
+<iter>
+<var name="${product}">&lt;selenium.webdriver.remote.webelement.WebElement (session="702a10ee735017b4725d49ea14c371ef", element="0b55ffbb-0814-4b11-bc88-a7eba843ebb6")&gt;</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${each_product}</var>
+<arg>${product}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20220526 17:31:22.120" level="INFO">${each_product} = Bluetooth Speaker Dog Portable Mini and Remote Shutter Release 4.3x4.5cm</msg>
+<status status="PASS" starttime="20220526 17:31:22.098" endtime="20220526 17:31:22.120"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${each_product}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220526 17:31:22.121" endtime="20220526 17:31:22.122"/>
+</kw>
+<status status="PASS" starttime="20220526 17:31:22.097" endtime="20220526 17:31:22.122"/>
+</iter>
+<iter>
+<var name="${product}">&lt;selenium.webdriver.remote.webelement.WebElement (session="702a10ee735017b4725d49ea14c371ef", element="53c9614f-d962-4d67-93e4-458614d687e3")&gt;</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${each_product}</var>
+<arg>${product}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20220526 17:31:22.153" level="INFO">${each_product} = NEW LISTINGSamsung Level Box Slim Wireless Portable Bluetooth Speaker - FAST DELIVERY</msg>
+<status status="PASS" starttime="20220526 17:31:22.124" endtime="20220526 17:31:22.153"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${each_product}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220526 17:31:22.153" endtime="20220526 17:31:22.155"/>
+</kw>
+<status status="PASS" starttime="20220526 17:31:22.123" endtime="20220526 17:31:22.155"/>
+</iter>
+<iter>
+<var name="${product}">&lt;selenium.webdriver.remote.webelement.WebElement (session="702a10ee735017b4725d49ea14c371ef", element="a6a88f08-63ea-4188-9fa6-72a2287ea481")&gt;</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${each_product}</var>
+<arg>${product}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20220526 17:31:22.182" level="INFO">${each_product} = NEW LISTINGTribit XSound Mega Portable Wireless Speaker</msg>
+<status status="PASS" starttime="20220526 17:31:22.156" endtime="20220526 17:31:22.182"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${each_product}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220526 17:31:22.182" endtime="20220526 17:31:22.184"/>
+</kw>
+<status status="PASS" starttime="20220526 17:31:22.156" endtime="20220526 17:31:22.184"/>
+</iter>
+<iter>
+<var name="${product}">&lt;selenium.webdriver.remote.webelement.WebElement (session="702a10ee735017b4725d49ea14c371ef", element="3c488612-03a2-4797-bff9-c28f26af68b6")&gt;</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${each_product}</var>
+<arg>${product}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20220526 17:31:22.210" level="INFO">${each_product} = Speaker Wireless Waterproof Outdoor Stereo Super Bass Portable FM for Bluetooth</msg>
+<status status="PASS" starttime="20220526 17:31:22.185" endtime="20220526 17:31:22.210"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${each_product}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220526 17:31:22.211" endtime="20220526 17:31:22.212"/>
+</kw>
+<status status="PASS" starttime="20220526 17:31:22.185" endtime="20220526 17:31:22.212"/>
+</iter>
+<iter>
+<var name="${product}">&lt;selenium.webdriver.remote.webelement.WebElement (session="702a10ee735017b4725d49ea14c371ef", element="a26565a2-94e2-47ea-b853-d0cb8208c828")&gt;</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${each_product}</var>
+<arg>${product}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20220526 17:31:22.246" level="INFO">${each_product} = Harman Kardon Sound Sticks 4 Bluetooth Speaker System</msg>
+<status status="PASS" starttime="20220526 17:31:22.213" endtime="20220526 17:31:22.246"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${each_product}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220526 17:31:22.246" endtime="20220526 17:31:22.247"/>
+</kw>
+<status status="PASS" starttime="20220526 17:31:22.213" endtime="20220526 17:31:22.247"/>
+</iter>
+<iter>
+<var name="${product}">&lt;selenium.webdriver.remote.webelement.WebElement (session="702a10ee735017b4725d49ea14c371ef", element="aa054ef9-faff-4a2f-b684-3e534c680281")&gt;</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${each_product}</var>
+<arg>${product}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20220526 17:31:22.277" level="INFO">${each_product} = NEW LISTINGAltec Lansing Jacket H20 4 Rugged Bluetooth Speaker Teal</msg>
+<status status="PASS" starttime="20220526 17:31:22.249" endtime="20220526 17:31:22.278"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${each_product}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220526 17:31:22.278" endtime="20220526 17:31:22.279"/>
+</kw>
+<status status="PASS" starttime="20220526 17:31:22.248" endtime="20220526 17:31:22.279"/>
+</iter>
+<iter>
+<var name="${product}">&lt;selenium.webdriver.remote.webelement.WebElement (session="702a10ee735017b4725d49ea14c371ef", element="5acaf0d7-32e4-4242-952c-2433cdd75989")&gt;</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${each_product}</var>
+<arg>${product}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20220526 17:31:22.306" level="INFO">${each_product} = NEW LISTINGION Bluetooth Clip-On Outdoor Speaker W Mounting Bracket &amp; Water Resistant</msg>
+<status status="PASS" starttime="20220526 17:31:22.280" endtime="20220526 17:31:22.306"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${each_product}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220526 17:31:22.306" endtime="20220526 17:31:22.307"/>
+</kw>
+<status status="PASS" starttime="20220526 17:31:22.279" endtime="20220526 17:31:22.307"/>
+</iter>
+<iter>
+<var name="${product}">&lt;selenium.webdriver.remote.webelement.WebElement (session="702a10ee735017b4725d49ea14c371ef", element="97ed36c6-4068-4baa-9dca-b7440d5aa296")&gt;</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${each_product}</var>
+<arg>${product}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20220526 17:31:22.331" level="INFO">${each_product} = NEW LISTINGWireless Speaker Protective Case forBose Soundlink Flex Speaker Holders</msg>
+<status status="PASS" starttime="20220526 17:31:22.308" endtime="20220526 17:31:22.332"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${each_product}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220526 17:31:22.332" endtime="20220526 17:31:22.334"/>
+</kw>
+<status status="PASS" starttime="20220526 17:31:22.308" endtime="20220526 17:31:22.334"/>
+</iter>
+<iter>
+<var name="${product}">&lt;selenium.webdriver.remote.webelement.WebElement (session="702a10ee735017b4725d49ea14c371ef", element="a6deb7cf-5ebf-4b8f-86b7-147b49a41c71")&gt;</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${each_product}</var>
+<arg>${product}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20220526 17:31:22.372" level="INFO">${each_product} = NEW LISTINGJam Classic 2.0 Wireless Bluetooth Portable Speaker - Blue</msg>
+<status status="PASS" starttime="20220526 17:31:22.335" endtime="20220526 17:31:22.381"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${each_product}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220526 17:31:22.381" endtime="20220526 17:31:22.382"/>
+</kw>
+<status status="PASS" starttime="20220526 17:31:22.334" endtime="20220526 17:31:22.382"/>
+</iter>
+<iter>
+<var name="${product}">&lt;selenium.webdriver.remote.webelement.WebElement (session="702a10ee735017b4725d49ea14c371ef", element="f2297fb2-495b-4713-b8c6-58b0238ca83f")&gt;</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${each_product}</var>
+<arg>${product}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20220526 17:31:22.412" level="INFO">${each_product} = NEW LISTINGSony SRS-XB13 Portable Speaker - Black</msg>
+<status status="PASS" starttime="20220526 17:31:22.383" endtime="20220526 17:31:22.412"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${each_product}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220526 17:31:22.412" endtime="20220526 17:31:22.413"/>
+</kw>
+<status status="PASS" starttime="20220526 17:31:22.383" endtime="20220526 17:31:22.413"/>
+</iter>
+<iter>
+<var name="${product}">&lt;selenium.webdriver.remote.webelement.WebElement (session="702a10ee735017b4725d49ea14c371ef", element="f37a9968-e02c-4f4e-bedc-bb3b143643ce")&gt;</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${each_product}</var>
+<arg>${product}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20220526 17:31:22.471" level="INFO">${each_product} = NEW LISTINGUltimate Ears UE ROLL 2 WS610 Orange Wireless Bluetooth Speaker Waterproof Rare</msg>
+<status status="PASS" starttime="20220526 17:31:22.414" endtime="20220526 17:31:22.472"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${each_product}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220526 17:31:22.472" endtime="20220526 17:31:22.475"/>
+</kw>
+<status status="PASS" starttime="20220526 17:31:22.413" endtime="20220526 17:31:22.475"/>
+</iter>
+<iter>
+<var name="${product}">&lt;selenium.webdriver.remote.webelement.WebElement (session="702a10ee735017b4725d49ea14c371ef", element="abbd43a6-0127-408c-b2bf-2d75ab2593f6")&gt;</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${each_product}</var>
+<arg>${product}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20220526 17:31:22.508" level="INFO">${each_product} = NEW LISTINGiLive ISP822B Wireless Speaker System</msg>
+<status status="PASS" starttime="20220526 17:31:22.476" endtime="20220526 17:31:22.508"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${each_product}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220526 17:31:22.508" endtime="20220526 17:31:22.509"/>
+</kw>
+<status status="PASS" starttime="20220526 17:31:22.475" endtime="20220526 17:31:22.509"/>
+</iter>
+<iter>
+<var name="${product}">&lt;selenium.webdriver.remote.webelement.WebElement (session="702a10ee735017b4725d49ea14c371ef", element="a43a5989-6da8-48de-a54c-ed5568c6628d")&gt;</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${each_product}</var>
+<arg>${product}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20220526 17:31:22.535" level="INFO">${each_product} = NEW LISTINGWireless Bluetooth Portable Speaker HiFi Stereo Mini FM Radio Subwoofer P1U7</msg>
+<status status="PASS" starttime="20220526 17:31:22.510" endtime="20220526 17:31:22.535"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${each_product}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220526 17:31:22.537" endtime="20220526 17:31:22.538"/>
+</kw>
+<status status="PASS" starttime="20220526 17:31:22.510" endtime="20220526 17:31:22.538"/>
+</iter>
+<iter>
+<var name="${product}">&lt;selenium.webdriver.remote.webelement.WebElement (session="702a10ee735017b4725d49ea14c371ef", element="cfe41614-7e8d-48e4-bf90-8d4d25c3a4e1")&gt;</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${each_product}</var>
+<arg>${product}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20220526 17:31:22.565" level="INFO">${each_product} = NEW LISTINGSmall wireless Speaker - Bluetooth USB AUX</msg>
+<status status="PASS" starttime="20220526 17:31:22.540" endtime="20220526 17:31:22.565"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${each_product}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220526 17:31:22.565" endtime="20220526 17:31:22.566"/>
+</kw>
+<status status="PASS" starttime="20220526 17:31:22.539" endtime="20220526 17:31:22.567"/>
+</iter>
+<iter>
+<var name="${product}">&lt;selenium.webdriver.remote.webelement.WebElement (session="702a10ee735017b4725d49ea14c371ef", element="fa945867-9f2f-4487-8ff2-225da24f91d6")&gt;</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${each_product}</var>
+<arg>${product}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20220526 17:31:22.593" level="INFO">${each_product} = NEW LISTINGBOSE SoundDock Series 2 Digital Music Speaker - Silver *NO REMOTE* original box</msg>
+<status status="PASS" starttime="20220526 17:31:22.568" endtime="20220526 17:31:22.593"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${each_product}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220526 17:31:22.593" endtime="20220526 17:31:22.594"/>
+</kw>
+<status status="PASS" starttime="20220526 17:31:22.567" endtime="20220526 17:31:22.594"/>
+</iter>
+<iter>
+<var name="${product}">&lt;selenium.webdriver.remote.webelement.WebElement (session="702a10ee735017b4725d49ea14c371ef", element="9b4f3aa2-6655-4562-a5f1-83016cb2add4")&gt;</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${each_product}</var>
+<arg>${product}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20220526 17:31:22.618" level="INFO">${each_product} = Logitech Ultimate Ears UE BOOM 3 Portable Wireless Bluetooth Speaker</msg>
+<status status="PASS" starttime="20220526 17:31:22.595" endtime="20220526 17:31:22.618"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${each_product}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220526 17:31:22.618" endtime="20220526 17:31:22.619"/>
+</kw>
+<status status="PASS" starttime="20220526 17:31:22.595" endtime="20220526 17:31:22.619"/>
+</iter>
+<iter>
+<var name="${product}">&lt;selenium.webdriver.remote.webelement.WebElement (session="702a10ee735017b4725d49ea14c371ef", element="1175a0be-45e5-4072-be5e-1f4510f49564")&gt;</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${each_product}</var>
+<arg>${product}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20220526 17:31:22.646" level="INFO">${each_product} = NEW LISTINGBose SoundDock Series 1 iPod iPhone and Bluetooth speaker</msg>
+<status status="PASS" starttime="20220526 17:31:22.620" endtime="20220526 17:31:22.646"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${each_product}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220526 17:31:22.646" endtime="20220526 17:31:22.647"/>
+</kw>
+<status status="PASS" starttime="20220526 17:31:22.620" endtime="20220526 17:31:22.647"/>
+</iter>
+<iter>
+<var name="${product}">&lt;selenium.webdriver.remote.webelement.WebElement (session="702a10ee735017b4725d49ea14c371ef", element="bcdfb78d-0a28-47ca-b393-8991e0613da6")&gt;</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${each_product}</var>
+<arg>${product}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20220526 17:31:22.676" level="INFO">${each_product} = Bose Home Speaker 500, Certified Refurbished</msg>
+<status status="PASS" starttime="20220526 17:31:22.648" endtime="20220526 17:31:22.677"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${each_product}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220526 17:31:22.677" endtime="20220526 17:31:22.678"/>
+</kw>
+<status status="PASS" starttime="20220526 17:31:22.647" endtime="20220526 17:31:22.678"/>
+</iter>
+<iter>
+<var name="${product}">&lt;selenium.webdriver.remote.webelement.WebElement (session="702a10ee735017b4725d49ea14c371ef", element="29af8b91-c0f9-4f1e-94e6-932d65867766")&gt;</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${each_product}</var>
+<arg>${product}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20220526 17:31:22.706" level="INFO">${each_product} = NEW LISTINGBluetooth Speaker D-Ring Parts for Logitech UE Boom 1UE Boom 2UE Megaboom Black</msg>
+<status status="PASS" starttime="20220526 17:31:22.679" endtime="20220526 17:31:22.706"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${each_product}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220526 17:31:22.707" endtime="20220526 17:31:22.708"/>
+</kw>
+<status status="PASS" starttime="20220526 17:31:22.678" endtime="20220526 17:31:22.708"/>
+</iter>
+<iter>
+<var name="${product}">&lt;selenium.webdriver.remote.webelement.WebElement (session="702a10ee735017b4725d49ea14c371ef", element="ab9847dd-2c18-4aa8-a23f-c1f2151021c5")&gt;</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${each_product}</var>
+<arg>${product}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20220526 17:31:22.735" level="INFO">${each_product} = Teac SR-LUXi iPhone Speaker Dock Radio Room Lamp Alarm Clock Black LED Light</msg>
+<status status="PASS" starttime="20220526 17:31:22.710" endtime="20220526 17:31:22.736"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${each_product}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220526 17:31:22.736" endtime="20220526 17:31:22.738"/>
+</kw>
+<status status="PASS" starttime="20220526 17:31:22.709" endtime="20220526 17:31:22.738"/>
+</iter>
+<status status="PASS" starttime="20220526 17:31:16.929" endtime="20220526 17:31:22.738"/>
+</for>
+<kw name="Close browser" library="common">
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20220526 17:31:22.740" endtime="20220526 17:31:26.549"/>
+</kw>
+<status status="PASS" starttime="20220526 17:31:22.739" endtime="20220526 17:31:26.550"/>
+</kw>
+<tag>no_structures</tag>
+<status status="PASS" starttime="20220526 17:31:05.100" endtime="20220526 17:31:26.554"/>
+</test>
+<status status="PASS" starttime="20220526 17:31:04.578" endtime="20220526 17:31:26.560"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="1" fail="0" skip="0">no_structures</stat>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="Tc 01">Tc 01</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
