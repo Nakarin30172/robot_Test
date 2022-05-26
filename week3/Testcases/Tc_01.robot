@@ -1,9 +1,5 @@
 *** Settings ***
-Library     SeleniumLibrary
-Resource    ${CURDIR}/../keywords/pages/home_page.robot
-Resource    ${CURDIR}/../keywords/common.robot
-Variables   ${CURDIR}/../keywords/resources/testdata/testdata.yaml
-
+Resource    ${CURDIR}/../keywords/imports.robot
 *** Test Cases ***
 TC_01
     [Tags]  no_structures

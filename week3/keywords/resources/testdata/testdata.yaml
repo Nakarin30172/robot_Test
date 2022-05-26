@@ -2,4 +2,4 @@ browser:
  url: "https://www.ebay.com"
  type: "chrome"
 tc_01:
- search_keyword: "speaker"
+ search_keyword: "Test"

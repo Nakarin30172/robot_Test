@@ -1,8 +1,6 @@
 
 *** Settings ***
-Library    SeleniumLibrary
-Resource    ${CURDIR}/../common.robot
-Variables   ${CURDIR}/../resources/testdata/testdata.yaml
+Resource    ${CURDIR}/../imports.robot
 *** Variables ***
 ${main_content}=    id=mainContent
 ${search_text}=    id=gh-ac

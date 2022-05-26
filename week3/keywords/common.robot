@@ -1,5 +1,5 @@
 *** Settings ***
-Library    SeleniumLibrary
+Resource    ${CURDIR}/imports.robot
 *** Variables ***
 ${main_content}=    id=mainContent
 *** Keywords ***
