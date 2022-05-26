@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 5.0.1 (Python 3.7.4 on win32)" generated="20220526 09:19:01.162" rpa="false" schemaversion="3">
+<suite id="s1" name="Test" source="D:\eke\TestOnline\Project_robbot\Test.robot">
+<test id="s1-t1" name="1.Test log message" line="11">
+<kw name="Log" library="BuiltIn">
+<arg>Test</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220526 09:19:01.631" level="INFO">Test</msg>
+<status status="PASS" starttime="20220526 09:19:01.631" endtime="20220526 09:19:01.632"/>
+</kw>
+<for flavor="IN">
+<var>${var}</var>
+<value>RANGE</value>
+<value>50</value>
+<iter>
+<var name="${var}">RANGE</var>
+<try>
+<branch type="TRY">
+<kw name="Log To Console" library="BuiltIn">
+<arg>${var}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220526 09:19:01.633" endtime="20220526 09:19:01.634"/>
+</kw>
+<status status="PASS" starttime="20220526 09:19:01.633" endtime="20220526 09:19:01.634"/>
+</branch>
+<branch type="EXCEPT">
+<kw name="Log To Console" library="BuiltIn">
+<arg>NotFile</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" starttime="20220526 09:19:01.635" endtime="20220526 09:19:01.635"/>
+</kw>
+<status status="NOT RUN" starttime="20220526 09:19:01.635" endtime="20220526 09:19:01.635"/>
+</branch>
+<status status="PASS" starttime="20220526 09:19:01.633" endtime="20220526 09:19:01.635"/>
+</try>
+<status status="PASS" starttime="20220526 09:19:01.633" endtime="20220526 09:19:01.635"/>
+</iter>
+<iter>
+<var name="${var}">50</var>
+<try>
+<branch type="TRY">
+<kw name="Log To Console" library="BuiltIn">
+<arg>${var}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220526 09:19:01.636" endtime="20220526 09:19:01.637"/>
+</kw>
+<status status="PASS" starttime="20220526 09:19:01.636" endtime="20220526 09:19:01.637"/>
+</branch>
+<branch type="EXCEPT">
+<kw name="Log To Console" library="BuiltIn">
+<arg>NotFile</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" starttime="20220526 09:19:01.638" endtime="20220526 09:19:01.638"/>
+</kw>
+<status status="NOT RUN" starttime="20220526 09:19:01.638" endtime="20220526 09:19:01.638"/>
+</branch>
+<status status="PASS" starttime="20220526 09:19:01.636" endtime="20220526 09:19:01.638"/>
+</try>
+<status status="PASS" starttime="20220526 09:19:01.635" endtime="20220526 09:19:01.638"/>
+</iter>
+<status status="PASS" starttime="20220526 09:19:01.633" endtime="20220526 09:19:01.638"/>
+</for>
+<status status="PASS" starttime="20220526 09:19:01.630" endtime="20220526 09:19:01.639"/>
+</test>
+<test id="s1-t2" name="2.open browser" line="21">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>D://eke//TestOnline//Project_robbot//demo.html</arg>
+<arg>browser=chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20220526 09:19:01.648" level="INFO">Opening browser 'chrome' to base url 'D://eke//TestOnline//Project_robbot//demo.html'.</msg>
+<status status="PASS" starttime="20220526 09:19:01.647" endtime="20220526 09:19:04.947"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${Text_free}</var>
+<arg>//div[@name='ayako']/parent::div[@name='yuki']/span</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20220526 09:19:05.053" level="INFO">${Text_free} = Yuki</msg>
+<status status="PASS" starttime="20220526 09:19:04.949" endtime="20220526 09:19:05.053"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${Text_free}</arg>
+<arg>console=yes</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20220526 09:19:05.055" level="INFO">Yuki</msg>
+<status status="PASS" starttime="20220526 09:19:05.054" endtime="20220526 09:19:05.056"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${Text_free}</arg>
+<arg>Yuki</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20220526 09:19:05.057" endtime="20220526 09:19:05.058"/>
+</kw>
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20220526 09:19:05.059" endtime="20220526 09:19:07.416"/>
+</kw>
+<status status="PASS" starttime="20220526 09:19:01.645" endtime="20220526 09:19:07.418"/>
+</test>
+<test id="s1-t3" name="3.Test list1" line="27">
+<kw name="Create List" library="BuiltIn">
+<var>${list1}</var>
+<arg>Hello</arg>
+<arg>am</arg>
+<arg>a</arg>
+<arg>man</arg>
+<arg>from</arg>
+<arg>the</arg>
+<arg>moon</arg>
+<doc>Returns a list containing given items.</doc>
+<msg timestamp="20220526 09:19:07.423" level="INFO">${list1} = ['Hello', 'am', 'a', 'man', 'from', 'the', 'moon']</msg>
+<status status="PASS" starttime="20220526 09:19:07.422" endtime="20220526 09:19:07.423"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>All the box : ${list1}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220526 09:19:07.424" endtime="20220526 09:19:07.425"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>Box : ${list1}[4]</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220526 09:19:07.426" endtime="20220526 09:19:07.427"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>Box : ${list1}[-2]</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220526 09:19:07.428" endtime="20220526 09:19:07.429"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>Test : ${list1}[4:6]</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220526 09:19:07.430" endtime="20220526 09:19:07.431"/>
+</kw>
+<tag>list1</tag>
+<status status="PASS" starttime="20220526 09:19:07.420" endtime="20220526 09:19:07.433"/>
+</test>
+<test id="s1-t4" name="4.Test list2" line="36">
+<kw name="Create List" library="BuiltIn">
+<var>${list3}</var>
+<arg>Hello</arg>
+<doc>Returns a list containing given items.</doc>
+<msg timestamp="20220526 09:19:07.438" level="INFO">${list3} = ['Hello']</msg>
+<status status="PASS" starttime="20220526 09:19:07.438" endtime="20220526 09:19:07.438"/>
+</kw>
+<kw name="Get Length" library="BuiltIn">
+<var>${len}</var>
+<arg>${list3}</arg>
+<doc>Returns and logs the length of the given item as an integer.</doc>
+<msg timestamp="20220526 09:19:07.439" level="INFO">Length is 1</msg>
+<msg timestamp="20220526 09:19:07.439" level="INFO">${len} = 1</msg>
+<status status="PASS" starttime="20220526 09:19:07.439" endtime="20220526 09:19:07.439"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${list3}</arg>
+<arg>low</arg>
+<arg>dog</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20220526 09:19:07.440" endtime="20220526 09:19:07.441"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${len}</arg>
+<arg>${1}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20220526 09:19:07.442" endtime="20220526 09:19:07.443"/>
+</kw>
+<kw name="Create List" library="BuiltIn">
+<var>${list4}</var>
+<arg>Hello1</arg>
+<arg>Hello2</arg>
+<doc>Returns a list containing given items.</doc>
+<msg timestamp="20220526 09:19:07.445" level="INFO">${list4} = ['Hello1', 'Hello2']</msg>
+<status status="PASS" starttime="20220526 09:19:07.444" endtime="20220526 09:19:07.445"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${list3}</arg>
+<arg>${list4}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20220526 09:19:07.446" endtime="20220526 09:19:07.447"/>
+</kw>
+<kw name="Get Length" library="BuiltIn">
+<var>${len1}</var>
+<arg>${list3}</arg>
+<doc>Returns and logs the length of the given item as an integer.</doc>
+<msg timestamp="20220526 09:19:07.449" level="INFO">Length is 4</msg>
+<msg timestamp="20220526 09:19:07.449" level="INFO">${len1} = 4</msg>
+<status status="PASS" starttime="20220526 09:19:07.448" endtime="20220526 09:19:07.450"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${len1}</arg>
+<arg>${4}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20220526 09:19:07.450" endtime="20220526 09:19:07.457"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>Test : ${list3}[3][1]</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220526 09:19:07.458" endtime="20220526 09:19:07.459"/>
+</kw>
+<tag>list2</tag>
+<status status="PASS" starttime="20220526 09:19:07.436" endtime="20220526 09:19:07.461"/>
+</test>
+<test id="s1-t5" name="Test Hello" line="47">
+<kw name="Get current time">
+<var>${Month}</var>
+<var>${year}</var>
+<kw name="Get Current Date" library="DateTime">
+<var>${current}</var>
+<arg>result_format=datetime</arg>
+<doc>Returns current local or UTC time with an optional increment.</doc>
+<msg timestamp="20220526 09:19:07.472" level="INFO">${current} = 2022-05-26 09:19:07.471534</msg>
+<status status="PASS" starttime="20220526 09:19:07.471" endtime="20220526 09:19:07.472"/>
+</kw>
+<msg timestamp="20220526 09:19:07.475" level="INFO">${Month} = 5</msg>
+<msg timestamp="20220526 09:19:07.475" level="INFO">${year} = 2022</msg>
+<status status="PASS" starttime="20220526 09:19:07.469" endtime="20220526 09:19:07.475"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>Month : ${Month}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220526 09:19:07.476" endtime="20220526 09:19:07.479"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>year : ${year}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220526 09:19:07.483" endtime="20220526 09:19:07.485"/>
+</kw>
+<kw name="Get current time">
+<var>@{current_date}</var>
+<kw name="Get Current Date" library="DateTime">
+<var>${current}</var>
+<arg>result_format=datetime</arg>
+<doc>Returns current local or UTC time with an optional increment.</doc>
+<msg timestamp="20220526 09:19:07.488" level="INFO">${current} = 2022-05-26 09:19:07.488484</msg>
+<status status="PASS" starttime="20220526 09:19:07.487" endtime="20220526 09:19:07.488"/>
+</kw>
+<msg timestamp="20220526 09:19:07.491" level="INFO">@{current_date} = [ 5 | 2022 ]</msg>
+<status status="PASS" starttime="20220526 09:19:07.486" endtime="20220526 09:19:07.491"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>Month : ${current_date}[0]</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220526 09:19:07.494" endtime="20220526 09:19:07.500"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>year : ${current_date}[1]</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220526 09:19:07.501" endtime="20220526 09:19:07.502"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${Month}</arg>
+<arg>${current_date}[0]</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20220526 09:19:07.504" endtime="20220526 09:19:07.504"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${year}</arg>
+<arg>${current_date}[1]</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20220526 09:19:07.505" endtime="20220526 09:19:07.506"/>
+</kw>
+<tag>list3</tag>
+<status status="PASS" starttime="20220526 09:19:07.466" endtime="20220526 09:19:07.507"/>
+</test>
+<status status="PASS" starttime="20220526 09:19:01.167" endtime="20220526 09:19:07.512"/>
+</suite>
+<statistics>
+<total>
+<stat pass="5" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="1" fail="0" skip="0">list1</stat>
+<stat pass="1" fail="0" skip="0">list2</stat>
+<stat pass="1" fail="0" skip="0">list3</stat>
+</tag>
+<suite>
+<stat pass="5" fail="0" skip="0" id="s1" name="Test">Test</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
