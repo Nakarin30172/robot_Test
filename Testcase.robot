@@ -12,7 +12,7 @@ Library     DateTime
     [Tags]      Test
     Log     Test
     FOR     ${var}       IN      RANGE      50
-        TRY
+        TRY 
             Log to console     ${var}
         EXCEPT
             Log to console     NotFile
