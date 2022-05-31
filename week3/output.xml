@@ -1,111 +1,825 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 5.0.1 (Python 3.7.4 on win32)" generated="20220526 18:01:48.023" rpa="false" schemaversion="3">
-<suite id="s1" name="Tc 01" source="D:\eke\robotfr\week3\Testcases\Tc_01.robot">
-<test id="s1-t1" name="TC_01" line="4">
-<kw name="Open ebay website" library="common">
-<kw name="Open Browser" library="SeleniumLibrary">
-<arg>${browser['url']}</arg>
-<arg>${browser['type']}</arg>
-<doc>Opens a new browser instance to the optional ``url``.</doc>
-<msg timestamp="20220526 18:01:48.624" level="INFO">Opening browser 'chrome' to base url 'https://www.ebay.com'.</msg>
-<status status="PASS" starttime="20220526 18:01:48.620" endtime="20220526 18:01:57.018"/>
+<robot generator="Robot 5.0 (Python 3.8.3 on win32)" generated="20220527 09:47:35.052" rpa="false" schemaversion="3">
+<suite id="s1" name="Testcase" source="D:\Users\nakarinsue\Documents\GitHub\robot_Test\week3\Eke\Testcase.robot">
+<test id="s1-t1" name="5.Test loop Quiz" line="56">
+<kw name="Log To Console" library="BuiltIn" type="SETUP">
+<arg>${EMPTY}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220527 09:47:35.471" endtime="20220527 09:47:35.473"/>
 </kw>
-<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
-<arg>${main_content}</arg>
-<arg>30s</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20220526 18:01:57.018" endtime="20220526 18:01:57.138"/>
-</kw>
-<status status="PASS" starttime="20220526 18:01:48.619" endtime="20220526 18:01:57.138"/>
-</kw>
-<kw name="Search product by Keyword" library="home_page">
-<arg>${tc_01['search_keyword']}</arg>
-<kw name="Input text by locator" library="common">
-<arg>${search_text}</arg>
-<arg>${keyword}</arg>
-<kw name="Input Text" library="SeleniumLibrary">
-<arg>${locator}</arg>
-<arg>${keyword}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20220526 18:01:57.145" level="INFO">Typing text 'Test' into text field 'id=gh-ac'.</msg>
-<status status="PASS" starttime="20220526 18:01:57.144" endtime="20220526 18:01:57.391"/>
-</kw>
-<status status="PASS" starttime="20220526 18:01:57.143" endtime="20220526 18:01:57.392"/>
-</kw>
-<kw name="Click element by locator" library="common">
-<arg>${search_button}</arg>
-<kw name="Click Element" library="SeleniumLibrary">
-<arg>${locator}</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20220526 18:01:57.395" level="INFO">Clicking element 'id=gh-btn'.</msg>
-<status status="PASS" starttime="20220526 18:01:57.394" endtime="20220526 18:02:09.680"/>
-</kw>
-<status status="PASS" starttime="20220526 18:01:57.392" endtime="20220526 18:02:09.680"/>
-</kw>
-<status status="PASS" starttime="20220526 18:01:57.140" endtime="20220526 18:02:09.681"/>
-</kw>
-<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
-<arg>xpath=//div[@id='mainContent']//li[contains(@class,'s-item')]</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20220526 18:02:09.682" endtime="20220526 18:02:09.897"/>
-</kw>
-<kw name="Get Text" library="SeleniumLibrary">
-<var>${result}</var>
-<arg>//h1[@class='srp-controls__count-heading']//span[2]</arg>
-<doc>Returns the text value of the element identified by ``locator``.</doc>
-<msg timestamp="20220526 18:02:10.018" level="INFO">${result} = test</msg>
-<status status="PASS" starttime="20220526 18:02:09.898" endtime="20220526 18:02:10.018"/>
-</kw>
-<kw name="Should Be Equal" library="BuiltIn">
-<arg>speaker</arg>
-<arg>${result}</arg>
-<doc>Fails if the given objects are unequal.</doc>
-<msg timestamp="20220526 18:02:10.025" level="FAIL">speaker != test</msg>
-<status status="FAIL" starttime="20220526 18:02:10.022" endtime="20220526 18:02:10.025"/>
-</kw>
-<kw name="Get WebElements" library="SeleniumLibrary">
-<var>${all_products}</var>
-<arg>//div[@id='srp-river-results']//h3[@class='s-item__title']</arg>
-<doc>Returns a list of WebElement objects matching the ``locator``.</doc>
-<status status="NOT RUN" starttime="20220526 18:02:10.041" endtime="20220526 18:02:10.041"/>
-</kw>
-<for flavor="IN">
-<var>${product}</var>
-<value>@{all_products}</value>
+<for flavor="IN RANGE">
+<var>${i}</var>
+<value>60</value>
 <iter>
-<var name="${product}"/>
-<kw name="Get Text" library="SeleniumLibrary">
-<var>${each_product}</var>
-<arg>${product}</arg>
-<doc>Returns the text value of the element identified by ``locator``.</doc>
-<status status="NOT RUN" starttime="20220526 18:02:10.044" endtime="20220526 18:02:10.045"/>
+<var name="${i}">0</var>
+<kw name="Get current second">
+<var>${current second}</var>
+<kw name="Get Current Date" library="DateTime">
+<var>${current}</var>
+<arg>result_format=datetime</arg>
+<doc>Returns current local or UTC time with an optional increment.</doc>
+<msg timestamp="20220527 09:47:35.474" level="INFO">${current} = 2022-05-27 09:47:35.473670</msg>
+<status status="PASS" starttime="20220527 09:47:35.474" endtime="20220527 09:47:35.474"/>
+</kw>
+<msg timestamp="20220527 09:47:35.475" level="INFO">${current second} = 35</msg>
+<status status="PASS" starttime="20220527 09:47:35.473" endtime="20220527 09:47:35.475"/>
+</kw>
+<if>
+<branch type="IF" condition="${current second} &gt; ${0} and ${current second} &lt;= ${30}">
+<kw name="Log To Console" library="BuiltIn">
+<arg>Low</arg>
+<arg>IF</arg>
+<arg>${current second} &gt; ${30} and ${current second} != ${0}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" starttime="20220527 09:47:35.476" endtime="20220527 09:47:35.476"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
-<arg>${each_product}</arg>
+<arg>High</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="NOT RUN" starttime="20220526 18:02:10.047" endtime="20220526 18:02:10.047"/>
+<status status="NOT RUN" starttime="20220527 09:47:35.476" endtime="20220527 09:47:35.476"/>
 </kw>
-<status status="NOT RUN" starttime="20220526 18:02:10.043" endtime="20220526 18:02:10.048"/>
+<status status="NOT RUN" starttime="20220527 09:47:35.476" endtime="20220527 09:47:35.477"/>
+</branch>
+<branch type="ELSE">
+<kw name="Log To Console" library="BuiltIn">
+<arg>jeckpot</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220527 09:47:35.477" endtime="20220527 09:47:35.478"/>
+</kw>
+<status status="PASS" starttime="20220527 09:47:35.477" endtime="20220527 09:47:35.478"/>
+</branch>
+<status status="PASS" starttime="20220527 09:47:35.475" endtime="20220527 09:47:35.479"/>
+</if>
+<kw name="Exit For Loop If" library="BuiltIn">
+<arg>'${current second}' == '0'</arg>
+<doc>Stops executing the enclosing FOR loop if the ``condition`` is true.</doc>
+<status status="PASS" starttime="20220527 09:47:35.479" endtime="20220527 09:47:35.480"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20220527 09:47:36.491" level="INFO">Slept 1 second</msg>
+<status status="PASS" starttime="20220527 09:47:35.480" endtime="20220527 09:47:36.491"/>
+</kw>
+<status status="PASS" starttime="20220527 09:47:35.473" endtime="20220527 09:47:36.491"/>
 </iter>
-<status status="NOT RUN" starttime="20220526 18:02:10.043" endtime="20220526 18:02:10.048"/>
-</for>
-<kw name="Close browser" library="common">
-<status status="NOT RUN" starttime="20220526 18:02:10.053" endtime="20220526 18:02:10.053"/>
+<iter>
+<var name="${i}">1</var>
+<kw name="Get current second">
+<var>${current second}</var>
+<kw name="Get Current Date" library="DateTime">
+<var>${current}</var>
+<arg>result_format=datetime</arg>
+<doc>Returns current local or UTC time with an optional increment.</doc>
+<msg timestamp="20220527 09:47:36.493" level="INFO">${current} = 2022-05-27 09:47:36.491929</msg>
+<status status="PASS" starttime="20220527 09:47:36.492" endtime="20220527 09:47:36.493"/>
 </kw>
-<tag>no_structures</tag>
-<status status="FAIL" starttime="20220526 18:01:48.618" endtime="20220526 18:02:10.072">speaker != test</status>
+<msg timestamp="20220527 09:47:36.494" level="INFO">${current second} = 36</msg>
+<status status="PASS" starttime="20220527 09:47:36.491" endtime="20220527 09:47:36.494"/>
+</kw>
+<if>
+<branch type="IF" condition="${current second} &gt; ${0} and ${current second} &lt;= ${30}">
+<kw name="Log To Console" library="BuiltIn">
+<arg>Low</arg>
+<arg>IF</arg>
+<arg>${current second} &gt; ${30} and ${current second} != ${0}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" starttime="20220527 09:47:36.496" endtime="20220527 09:47:36.496"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>High</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" starttime="20220527 09:47:36.496" endtime="20220527 09:47:36.496"/>
+</kw>
+<status status="NOT RUN" starttime="20220527 09:47:36.495" endtime="20220527 09:47:36.496"/>
+</branch>
+<branch type="ELSE">
+<kw name="Log To Console" library="BuiltIn">
+<arg>jeckpot</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220527 09:47:36.496" endtime="20220527 09:47:36.497"/>
+</kw>
+<status status="PASS" starttime="20220527 09:47:36.496" endtime="20220527 09:47:36.497"/>
+</branch>
+<status status="PASS" starttime="20220527 09:47:36.494" endtime="20220527 09:47:36.497"/>
+</if>
+<kw name="Exit For Loop If" library="BuiltIn">
+<arg>'${current second}' == '0'</arg>
+<doc>Stops executing the enclosing FOR loop if the ``condition`` is true.</doc>
+<status status="PASS" starttime="20220527 09:47:36.498" endtime="20220527 09:47:36.499"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20220527 09:47:37.510" level="INFO">Slept 1 second</msg>
+<status status="PASS" starttime="20220527 09:47:36.499" endtime="20220527 09:47:37.510"/>
+</kw>
+<status status="PASS" starttime="20220527 09:47:36.491" endtime="20220527 09:47:37.510"/>
+</iter>
+<iter>
+<var name="${i}">2</var>
+<kw name="Get current second">
+<var>${current second}</var>
+<kw name="Get Current Date" library="DateTime">
+<var>${current}</var>
+<arg>result_format=datetime</arg>
+<doc>Returns current local or UTC time with an optional increment.</doc>
+<msg timestamp="20220527 09:47:37.513" level="INFO">${current} = 2022-05-27 09:47:37.512794</msg>
+<status status="PASS" starttime="20220527 09:47:37.512" endtime="20220527 09:47:37.513"/>
+</kw>
+<msg timestamp="20220527 09:47:37.516" level="INFO">${current second} = 37</msg>
+<status status="PASS" starttime="20220527 09:47:37.511" endtime="20220527 09:47:37.516"/>
+</kw>
+<if>
+<branch type="IF" condition="${current second} &gt; ${0} and ${current second} &lt;= ${30}">
+<kw name="Log To Console" library="BuiltIn">
+<arg>Low</arg>
+<arg>IF</arg>
+<arg>${current second} &gt; ${30} and ${current second} != ${0}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" starttime="20220527 09:47:37.519" endtime="20220527 09:47:37.519"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>High</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" starttime="20220527 09:47:37.519" endtime="20220527 09:47:37.520"/>
+</kw>
+<status status="NOT RUN" starttime="20220527 09:47:37.518" endtime="20220527 09:47:37.520"/>
+</branch>
+<branch type="ELSE">
+<kw name="Log To Console" library="BuiltIn">
+<arg>jeckpot</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220527 09:47:37.520" endtime="20220527 09:47:37.522"/>
+</kw>
+<status status="PASS" starttime="20220527 09:47:37.520" endtime="20220527 09:47:37.522"/>
+</branch>
+<status status="PASS" starttime="20220527 09:47:37.516" endtime="20220527 09:47:37.522"/>
+</if>
+<kw name="Exit For Loop If" library="BuiltIn">
+<arg>'${current second}' == '0'</arg>
+<doc>Stops executing the enclosing FOR loop if the ``condition`` is true.</doc>
+<status status="PASS" starttime="20220527 09:47:37.523" endtime="20220527 09:47:37.524"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20220527 09:47:38.538" level="INFO">Slept 1 second</msg>
+<status status="PASS" starttime="20220527 09:47:37.525" endtime="20220527 09:47:38.539"/>
+</kw>
+<status status="PASS" starttime="20220527 09:47:37.511" endtime="20220527 09:47:38.539"/>
+</iter>
+<iter>
+<var name="${i}">3</var>
+<kw name="Get current second">
+<var>${current second}</var>
+<kw name="Get Current Date" library="DateTime">
+<var>${current}</var>
+<arg>result_format=datetime</arg>
+<doc>Returns current local or UTC time with an optional increment.</doc>
+<msg timestamp="20220527 09:47:38.543" level="INFO">${current} = 2022-05-27 09:47:38.542528</msg>
+<status status="PASS" starttime="20220527 09:47:38.541" endtime="20220527 09:47:38.543"/>
+</kw>
+<msg timestamp="20220527 09:47:38.546" level="INFO">${current second} = 38</msg>
+<status status="PASS" starttime="20220527 09:47:38.540" endtime="20220527 09:47:38.546"/>
+</kw>
+<if>
+<branch type="IF" condition="${current second} &gt; ${0} and ${current second} &lt;= ${30}">
+<kw name="Log To Console" library="BuiltIn">
+<arg>Low</arg>
+<arg>IF</arg>
+<arg>${current second} &gt; ${30} and ${current second} != ${0}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" starttime="20220527 09:47:38.550" endtime="20220527 09:47:38.550"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>High</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" starttime="20220527 09:47:38.550" endtime="20220527 09:47:38.550"/>
+</kw>
+<status status="NOT RUN" starttime="20220527 09:47:38.549" endtime="20220527 09:47:38.551"/>
+</branch>
+<branch type="ELSE">
+<kw name="Log To Console" library="BuiltIn">
+<arg>jeckpot</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220527 09:47:38.551" endtime="20220527 09:47:38.552"/>
+</kw>
+<status status="PASS" starttime="20220527 09:47:38.551" endtime="20220527 09:47:38.552"/>
+</branch>
+<status status="PASS" starttime="20220527 09:47:38.546" endtime="20220527 09:47:38.552"/>
+</if>
+<kw name="Exit For Loop If" library="BuiltIn">
+<arg>'${current second}' == '0'</arg>
+<doc>Stops executing the enclosing FOR loop if the ``condition`` is true.</doc>
+<status status="PASS" starttime="20220527 09:47:38.554" endtime="20220527 09:47:38.555"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20220527 09:47:39.566" level="INFO">Slept 1 second</msg>
+<status status="PASS" starttime="20220527 09:47:38.555" endtime="20220527 09:47:39.566"/>
+</kw>
+<status status="PASS" starttime="20220527 09:47:38.539" endtime="20220527 09:47:39.567"/>
+</iter>
+<iter>
+<var name="${i}">4</var>
+<kw name="Get current second">
+<var>${current second}</var>
+<kw name="Get Current Date" library="DateTime">
+<var>${current}</var>
+<arg>result_format=datetime</arg>
+<doc>Returns current local or UTC time with an optional increment.</doc>
+<msg timestamp="20220527 09:47:39.570" level="INFO">${current} = 2022-05-27 09:47:39.569693</msg>
+<status status="PASS" starttime="20220527 09:47:39.569" endtime="20220527 09:47:39.570"/>
+</kw>
+<msg timestamp="20220527 09:47:39.573" level="INFO">${current second} = 39</msg>
+<status status="PASS" starttime="20220527 09:47:39.568" endtime="20220527 09:47:39.573"/>
+</kw>
+<if>
+<branch type="IF" condition="${current second} &gt; ${0} and ${current second} &lt;= ${30}">
+<kw name="Log To Console" library="BuiltIn">
+<arg>Low</arg>
+<arg>IF</arg>
+<arg>${current second} &gt; ${30} and ${current second} != ${0}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" starttime="20220527 09:47:39.578" endtime="20220527 09:47:39.578"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>High</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" starttime="20220527 09:47:39.579" endtime="20220527 09:47:39.579"/>
+</kw>
+<status status="NOT RUN" starttime="20220527 09:47:39.577" endtime="20220527 09:47:39.579"/>
+</branch>
+<branch type="ELSE">
+<kw name="Log To Console" library="BuiltIn">
+<arg>jeckpot</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220527 09:47:39.580" endtime="20220527 09:47:39.581"/>
+</kw>
+<status status="PASS" starttime="20220527 09:47:39.579" endtime="20220527 09:47:39.581"/>
+</branch>
+<status status="PASS" starttime="20220527 09:47:39.574" endtime="20220527 09:47:39.581"/>
+</if>
+<kw name="Exit For Loop If" library="BuiltIn">
+<arg>'${current second}' == '0'</arg>
+<doc>Stops executing the enclosing FOR loop if the ``condition`` is true.</doc>
+<status status="PASS" starttime="20220527 09:47:39.582" endtime="20220527 09:47:39.584"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20220527 09:47:40.595" level="INFO">Slept 1 second</msg>
+<status status="PASS" starttime="20220527 09:47:39.584" endtime="20220527 09:47:40.596"/>
+</kw>
+<status status="PASS" starttime="20220527 09:47:39.567" endtime="20220527 09:47:40.596"/>
+</iter>
+<iter>
+<var name="${i}">5</var>
+<kw name="Get current second">
+<var>${current second}</var>
+<kw name="Get Current Date" library="DateTime">
+<var>${current}</var>
+<arg>result_format=datetime</arg>
+<doc>Returns current local or UTC time with an optional increment.</doc>
+<msg timestamp="20220527 09:47:40.601" level="INFO">${current} = 2022-05-27 09:47:40.600142</msg>
+<status status="PASS" starttime="20220527 09:47:40.599" endtime="20220527 09:47:40.601"/>
+</kw>
+<msg timestamp="20220527 09:47:40.604" level="INFO">${current second} = 40</msg>
+<status status="PASS" starttime="20220527 09:47:40.597" endtime="20220527 09:47:40.604"/>
+</kw>
+<if>
+<branch type="IF" condition="${current second} &gt; ${0} and ${current second} &lt;= ${30}">
+<kw name="Log To Console" library="BuiltIn">
+<arg>Low</arg>
+<arg>IF</arg>
+<arg>${current second} &gt; ${30} and ${current second} != ${0}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" starttime="20220527 09:47:40.608" endtime="20220527 09:47:40.608"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>High</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" starttime="20220527 09:47:40.608" endtime="20220527 09:47:40.608"/>
+</kw>
+<status status="NOT RUN" starttime="20220527 09:47:40.607" endtime="20220527 09:47:40.608"/>
+</branch>
+<branch type="ELSE">
+<kw name="Log To Console" library="BuiltIn">
+<arg>jeckpot</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220527 09:47:40.609" endtime="20220527 09:47:40.610"/>
+</kw>
+<status status="PASS" starttime="20220527 09:47:40.609" endtime="20220527 09:47:40.610"/>
+</branch>
+<status status="PASS" starttime="20220527 09:47:40.605" endtime="20220527 09:47:40.610"/>
+</if>
+<kw name="Exit For Loop If" library="BuiltIn">
+<arg>'${current second}' == '0'</arg>
+<doc>Stops executing the enclosing FOR loop if the ``condition`` is true.</doc>
+<status status="PASS" starttime="20220527 09:47:40.611" endtime="20220527 09:47:40.612"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20220527 09:47:41.627" level="INFO">Slept 1 second</msg>
+<status status="PASS" starttime="20220527 09:47:40.612" endtime="20220527 09:47:41.627"/>
+</kw>
+<status status="PASS" starttime="20220527 09:47:40.597" endtime="20220527 09:47:41.627"/>
+</iter>
+<iter>
+<var name="${i}">6</var>
+<kw name="Get current second">
+<var>${current second}</var>
+<kw name="Get Current Date" library="DateTime">
+<var>${current}</var>
+<arg>result_format=datetime</arg>
+<doc>Returns current local or UTC time with an optional increment.</doc>
+<msg timestamp="20220527 09:47:41.628" level="INFO">${current} = 2022-05-27 09:47:41.627660</msg>
+<status status="PASS" starttime="20220527 09:47:41.628" endtime="20220527 09:47:41.628"/>
+</kw>
+<msg timestamp="20220527 09:47:41.629" level="INFO">${current second} = 41</msg>
+<status status="PASS" starttime="20220527 09:47:41.627" endtime="20220527 09:47:41.629"/>
+</kw>
+<if>
+<branch type="IF" condition="${current second} &gt; ${0} and ${current second} &lt;= ${30}">
+<kw name="Log To Console" library="BuiltIn">
+<arg>Low</arg>
+<arg>IF</arg>
+<arg>${current second} &gt; ${30} and ${current second} != ${0}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" starttime="20220527 09:47:41.630" endtime="20220527 09:47:41.630"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>High</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" starttime="20220527 09:47:41.630" endtime="20220527 09:47:41.630"/>
+</kw>
+<status status="NOT RUN" starttime="20220527 09:47:41.629" endtime="20220527 09:47:41.630"/>
+</branch>
+<branch type="ELSE">
+<kw name="Log To Console" library="BuiltIn">
+<arg>jeckpot</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220527 09:47:41.630" endtime="20220527 09:47:41.631"/>
+</kw>
+<status status="PASS" starttime="20220527 09:47:41.630" endtime="20220527 09:47:41.631"/>
+</branch>
+<status status="PASS" starttime="20220527 09:47:41.629" endtime="20220527 09:47:41.631"/>
+</if>
+<kw name="Exit For Loop If" library="BuiltIn">
+<arg>'${current second}' == '0'</arg>
+<doc>Stops executing the enclosing FOR loop if the ``condition`` is true.</doc>
+<status status="PASS" starttime="20220527 09:47:41.631" endtime="20220527 09:47:41.632"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20220527 09:47:42.641" level="INFO">Slept 1 second</msg>
+<status status="PASS" starttime="20220527 09:47:41.632" endtime="20220527 09:47:42.641"/>
+</kw>
+<status status="PASS" starttime="20220527 09:47:41.627" endtime="20220527 09:47:42.641"/>
+</iter>
+<iter>
+<var name="${i}">7</var>
+<kw name="Get current second">
+<var>${current second}</var>
+<kw name="Get Current Date" library="DateTime">
+<var>${current}</var>
+<arg>result_format=datetime</arg>
+<doc>Returns current local or UTC time with an optional increment.</doc>
+<msg timestamp="20220527 09:47:42.642" level="INFO">${current} = 2022-05-27 09:47:42.641671</msg>
+<status status="PASS" starttime="20220527 09:47:42.642" endtime="20220527 09:47:42.642"/>
+</kw>
+<msg timestamp="20220527 09:47:42.643" level="INFO">${current second} = 42</msg>
+<status status="PASS" starttime="20220527 09:47:42.641" endtime="20220527 09:47:42.643"/>
+</kw>
+<if>
+<branch type="IF" condition="${current second} &gt; ${0} and ${current second} &lt;= ${30}">
+<kw name="Log To Console" library="BuiltIn">
+<arg>Low</arg>
+<arg>IF</arg>
+<arg>${current second} &gt; ${30} and ${current second} != ${0}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" starttime="20220527 09:47:42.644" endtime="20220527 09:47:42.644"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>High</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" starttime="20220527 09:47:42.644" endtime="20220527 09:47:42.644"/>
+</kw>
+<status status="NOT RUN" starttime="20220527 09:47:42.644" endtime="20220527 09:47:42.644"/>
+</branch>
+<branch type="ELSE">
+<kw name="Log To Console" library="BuiltIn">
+<arg>jeckpot</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220527 09:47:42.644" endtime="20220527 09:47:42.645"/>
+</kw>
+<status status="PASS" starttime="20220527 09:47:42.644" endtime="20220527 09:47:42.645"/>
+</branch>
+<status status="PASS" starttime="20220527 09:47:42.643" endtime="20220527 09:47:42.645"/>
+</if>
+<kw name="Exit For Loop If" library="BuiltIn">
+<arg>'${current second}' == '0'</arg>
+<doc>Stops executing the enclosing FOR loop if the ``condition`` is true.</doc>
+<status status="PASS" starttime="20220527 09:47:42.645" endtime="20220527 09:47:42.646"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20220527 09:47:43.653" level="INFO">Slept 1 second</msg>
+<status status="PASS" starttime="20220527 09:47:42.646" endtime="20220527 09:47:43.654"/>
+</kw>
+<status status="PASS" starttime="20220527 09:47:42.641" endtime="20220527 09:47:43.654"/>
+</iter>
+<iter>
+<var name="${i}">8</var>
+<kw name="Get current second">
+<var>${current second}</var>
+<kw name="Get Current Date" library="DateTime">
+<var>${current}</var>
+<arg>result_format=datetime</arg>
+<doc>Returns current local or UTC time with an optional increment.</doc>
+<msg timestamp="20220527 09:47:43.659" level="INFO">${current} = 2022-05-27 09:47:43.658966</msg>
+<status status="PASS" starttime="20220527 09:47:43.658" endtime="20220527 09:47:43.659"/>
+</kw>
+<msg timestamp="20220527 09:47:43.663" level="INFO">${current second} = 43</msg>
+<status status="PASS" starttime="20220527 09:47:43.655" endtime="20220527 09:47:43.663"/>
+</kw>
+<if>
+<branch type="IF" condition="${current second} &gt; ${0} and ${current second} &lt;= ${30}">
+<kw name="Log To Console" library="BuiltIn">
+<arg>Low</arg>
+<arg>IF</arg>
+<arg>${current second} &gt; ${30} and ${current second} != ${0}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" starttime="20220527 09:47:43.667" endtime="20220527 09:47:43.667"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>High</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" starttime="20220527 09:47:43.667" endtime="20220527 09:47:43.668"/>
+</kw>
+<status status="NOT RUN" starttime="20220527 09:47:43.667" endtime="20220527 09:47:43.668"/>
+</branch>
+<branch type="ELSE">
+<kw name="Log To Console" library="BuiltIn">
+<arg>jeckpot</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220527 09:47:43.668" endtime="20220527 09:47:43.671"/>
+</kw>
+<status status="PASS" starttime="20220527 09:47:43.668" endtime="20220527 09:47:43.671"/>
+</branch>
+<status status="PASS" starttime="20220527 09:47:43.663" endtime="20220527 09:47:43.671"/>
+</if>
+<kw name="Exit For Loop If" library="BuiltIn">
+<arg>'${current second}' == '0'</arg>
+<doc>Stops executing the enclosing FOR loop if the ``condition`` is true.</doc>
+<status status="PASS" starttime="20220527 09:47:43.672" endtime="20220527 09:47:43.674"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20220527 09:47:44.688" level="INFO">Slept 1 second</msg>
+<status status="PASS" starttime="20220527 09:47:43.674" endtime="20220527 09:47:44.689"/>
+</kw>
+<status status="PASS" starttime="20220527 09:47:43.655" endtime="20220527 09:47:44.689"/>
+</iter>
+<iter>
+<var name="${i}">9</var>
+<kw name="Get current second">
+<var>${current second}</var>
+<kw name="Get Current Date" library="DateTime">
+<var>${current}</var>
+<arg>result_format=datetime</arg>
+<doc>Returns current local or UTC time with an optional increment.</doc>
+<msg timestamp="20220527 09:47:44.693" level="INFO">${current} = 2022-05-27 09:47:44.692804</msg>
+<status status="PASS" starttime="20220527 09:47:44.692" endtime="20220527 09:47:44.693"/>
+</kw>
+<msg timestamp="20220527 09:47:44.697" level="INFO">${current second} = 44</msg>
+<status status="PASS" starttime="20220527 09:47:44.690" endtime="20220527 09:47:44.697"/>
+</kw>
+<if>
+<branch type="IF" condition="${current second} &gt; ${0} and ${current second} &lt;= ${30}">
+<kw name="Log To Console" library="BuiltIn">
+<arg>Low</arg>
+<arg>IF</arg>
+<arg>${current second} &gt; ${30} and ${current second} != ${0}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" starttime="20220527 09:47:44.701" endtime="20220527 09:47:44.701"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>High</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" starttime="20220527 09:47:44.702" endtime="20220527 09:47:44.702"/>
+</kw>
+<status status="NOT RUN" starttime="20220527 09:47:44.701" endtime="20220527 09:47:44.702"/>
+</branch>
+<branch type="ELSE">
+<kw name="Log To Console" library="BuiltIn">
+<arg>jeckpot</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220527 09:47:44.702" endtime="20220527 09:47:44.704"/>
+</kw>
+<status status="PASS" starttime="20220527 09:47:44.702" endtime="20220527 09:47:44.704"/>
+</branch>
+<status status="PASS" starttime="20220527 09:47:44.697" endtime="20220527 09:47:44.705"/>
+</if>
+<kw name="Exit For Loop If" library="BuiltIn">
+<arg>'${current second}' == '0'</arg>
+<doc>Stops executing the enclosing FOR loop if the ``condition`` is true.</doc>
+<status status="PASS" starttime="20220527 09:47:44.705" endtime="20220527 09:47:44.706"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20220527 09:47:45.717" level="INFO">Slept 1 second</msg>
+<status status="PASS" starttime="20220527 09:47:44.706" endtime="20220527 09:47:45.717"/>
+</kw>
+<status status="PASS" starttime="20220527 09:47:44.690" endtime="20220527 09:47:45.717"/>
+</iter>
+<iter>
+<var name="${i}">10</var>
+<kw name="Get current second">
+<var>${current second}</var>
+<kw name="Get Current Date" library="DateTime">
+<var>${current}</var>
+<arg>result_format=datetime</arg>
+<doc>Returns current local or UTC time with an optional increment.</doc>
+<msg timestamp="20220527 09:47:45.718" level="INFO">${current} = 2022-05-27 09:47:45.717726</msg>
+<status status="PASS" starttime="20220527 09:47:45.718" endtime="20220527 09:47:45.718"/>
+</kw>
+<msg timestamp="20220527 09:47:45.719" level="INFO">${current second} = 45</msg>
+<status status="PASS" starttime="20220527 09:47:45.717" endtime="20220527 09:47:45.719"/>
+</kw>
+<if>
+<branch type="IF" condition="${current second} &gt; ${0} and ${current second} &lt;= ${30}">
+<kw name="Log To Console" library="BuiltIn">
+<arg>Low</arg>
+<arg>IF</arg>
+<arg>${current second} &gt; ${30} and ${current second} != ${0}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" starttime="20220527 09:47:45.720" endtime="20220527 09:47:45.720"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>High</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" starttime="20220527 09:47:45.720" endtime="20220527 09:47:45.720"/>
+</kw>
+<status status="NOT RUN" starttime="20220527 09:47:45.720" endtime="20220527 09:47:45.720"/>
+</branch>
+<branch type="ELSE">
+<kw name="Log To Console" library="BuiltIn">
+<arg>jeckpot</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220527 09:47:45.720" endtime="20220527 09:47:45.721"/>
+</kw>
+<status status="PASS" starttime="20220527 09:47:45.720" endtime="20220527 09:47:45.721"/>
+</branch>
+<status status="PASS" starttime="20220527 09:47:45.719" endtime="20220527 09:47:45.721"/>
+</if>
+<kw name="Exit For Loop If" library="BuiltIn">
+<arg>'${current second}' == '0'</arg>
+<doc>Stops executing the enclosing FOR loop if the ``condition`` is true.</doc>
+<status status="PASS" starttime="20220527 09:47:45.721" endtime="20220527 09:47:45.722"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20220527 09:47:46.735" level="INFO">Slept 1 second</msg>
+<status status="PASS" starttime="20220527 09:47:45.722" endtime="20220527 09:47:46.735"/>
+</kw>
+<status status="PASS" starttime="20220527 09:47:45.717" endtime="20220527 09:47:46.735"/>
+</iter>
+<iter>
+<var name="${i}">11</var>
+<kw name="Get current second">
+<var>${current second}</var>
+<kw name="Get Current Date" library="DateTime">
+<var>${current}</var>
+<arg>result_format=datetime</arg>
+<doc>Returns current local or UTC time with an optional increment.</doc>
+<msg timestamp="20220527 09:47:46.738" level="INFO">${current} = 2022-05-27 09:47:46.738241</msg>
+<status status="PASS" starttime="20220527 09:47:46.738" endtime="20220527 09:47:46.738"/>
+</kw>
+<msg timestamp="20220527 09:47:46.739" level="INFO">${current second} = 46</msg>
+<status status="PASS" starttime="20220527 09:47:46.737" endtime="20220527 09:47:46.739"/>
+</kw>
+<if>
+<branch type="IF" condition="${current second} &gt; ${0} and ${current second} &lt;= ${30}">
+<kw name="Log To Console" library="BuiltIn">
+<arg>Low</arg>
+<arg>IF</arg>
+<arg>${current second} &gt; ${30} and ${current second} != ${0}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" starttime="20220527 09:47:46.741" endtime="20220527 09:47:46.741"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>High</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" starttime="20220527 09:47:46.741" endtime="20220527 09:47:46.741"/>
+</kw>
+<status status="NOT RUN" starttime="20220527 09:47:46.740" endtime="20220527 09:47:46.741"/>
+</branch>
+<branch type="ELSE">
+<kw name="Log To Console" library="BuiltIn">
+<arg>jeckpot</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220527 09:47:46.741" endtime="20220527 09:47:46.742"/>
+</kw>
+<status status="PASS" starttime="20220527 09:47:46.741" endtime="20220527 09:47:46.742"/>
+</branch>
+<status status="PASS" starttime="20220527 09:47:46.740" endtime="20220527 09:47:46.742"/>
+</if>
+<kw name="Exit For Loop If" library="BuiltIn">
+<arg>'${current second}' == '0'</arg>
+<doc>Stops executing the enclosing FOR loop if the ``condition`` is true.</doc>
+<status status="PASS" starttime="20220527 09:47:46.742" endtime="20220527 09:47:46.743"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20220527 09:47:47.752" level="INFO">Slept 1 second</msg>
+<status status="PASS" starttime="20220527 09:47:46.743" endtime="20220527 09:47:47.752"/>
+</kw>
+<status status="PASS" starttime="20220527 09:47:46.736" endtime="20220527 09:47:47.752"/>
+</iter>
+<iter>
+<var name="${i}">12</var>
+<kw name="Get current second">
+<var>${current second}</var>
+<kw name="Get Current Date" library="DateTime">
+<var>${current}</var>
+<arg>result_format=datetime</arg>
+<doc>Returns current local or UTC time with an optional increment.</doc>
+<msg timestamp="20220527 09:47:47.754" level="INFO">${current} = 2022-05-27 09:47:47.754074</msg>
+<status status="PASS" starttime="20220527 09:47:47.753" endtime="20220527 09:47:47.754"/>
+</kw>
+<msg timestamp="20220527 09:47:47.755" level="INFO">${current second} = 47</msg>
+<status status="PASS" starttime="20220527 09:47:47.753" endtime="20220527 09:47:47.755"/>
+</kw>
+<if>
+<branch type="IF" condition="${current second} &gt; ${0} and ${current second} &lt;= ${30}">
+<kw name="Log To Console" library="BuiltIn">
+<arg>Low</arg>
+<arg>IF</arg>
+<arg>${current second} &gt; ${30} and ${current second} != ${0}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" starttime="20220527 09:47:47.756" endtime="20220527 09:47:47.756"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>High</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" starttime="20220527 09:47:47.756" endtime="20220527 09:47:47.756"/>
+</kw>
+<status status="NOT RUN" starttime="20220527 09:47:47.756" endtime="20220527 09:47:47.756"/>
+</branch>
+<branch type="ELSE">
+<kw name="Log To Console" library="BuiltIn">
+<arg>jeckpot</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220527 09:47:47.757" endtime="20220527 09:47:47.758"/>
+</kw>
+<status status="PASS" starttime="20220527 09:47:47.757" endtime="20220527 09:47:47.758"/>
+</branch>
+<status status="PASS" starttime="20220527 09:47:47.755" endtime="20220527 09:47:47.758"/>
+</if>
+<kw name="Exit For Loop If" library="BuiltIn">
+<arg>'${current second}' == '0'</arg>
+<doc>Stops executing the enclosing FOR loop if the ``condition`` is true.</doc>
+<status status="PASS" starttime="20220527 09:47:47.758" endtime="20220527 09:47:47.759"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20220527 09:47:48.766" level="INFO">Slept 1 second</msg>
+<status status="PASS" starttime="20220527 09:47:47.759" endtime="20220527 09:47:48.766"/>
+</kw>
+<status status="PASS" starttime="20220527 09:47:47.752" endtime="20220527 09:47:48.766"/>
+</iter>
+<iter>
+<var name="${i}">13</var>
+<kw name="Get current second">
+<var>${current second}</var>
+<kw name="Get Current Date" library="DateTime">
+<var>${current}</var>
+<arg>result_format=datetime</arg>
+<doc>Returns current local or UTC time with an optional increment.</doc>
+<msg timestamp="20220527 09:47:48.768" level="INFO">${current} = 2022-05-27 09:47:48.766532</msg>
+<status status="PASS" starttime="20220527 09:47:48.767" endtime="20220527 09:47:48.768"/>
+</kw>
+<msg timestamp="20220527 09:47:48.768" level="INFO">${current second} = 48</msg>
+<status status="PASS" starttime="20220527 09:47:48.766" endtime="20220527 09:47:48.768"/>
+</kw>
+<if>
+<branch type="IF" condition="${current second} &gt; ${0} and ${current second} &lt;= ${30}">
+<kw name="Log To Console" library="BuiltIn">
+<arg>Low</arg>
+<arg>IF</arg>
+<arg>${current second} &gt; ${30} and ${current second} != ${0}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" starttime="20220527 09:47:48.770" endtime="20220527 09:47:48.770"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>High</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" starttime="20220527 09:47:48.770" endtime="20220527 09:47:48.770"/>
+</kw>
+<status status="NOT RUN" starttime="20220527 09:47:48.770" endtime="20220527 09:47:48.770"/>
+</branch>
+<branch type="ELSE">
+<kw name="Log To Console" library="BuiltIn">
+<arg>jeckpot</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220527 09:47:48.770" endtime="20220527 09:47:48.771"/>
+</kw>
+<status status="PASS" starttime="20220527 09:47:48.770" endtime="20220527 09:47:48.771"/>
+</branch>
+<status status="PASS" starttime="20220527 09:47:48.769" endtime="20220527 09:47:48.771"/>
+</if>
+<kw name="Exit For Loop If" library="BuiltIn">
+<arg>'${current second}' == '0'</arg>
+<doc>Stops executing the enclosing FOR loop if the ``condition`` is true.</doc>
+<status status="PASS" starttime="20220527 09:47:48.771" endtime="20220527 09:47:48.772"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20220527 09:47:49.780" level="INFO">Slept 1 second</msg>
+<status status="PASS" starttime="20220527 09:47:48.772" endtime="20220527 09:47:49.780"/>
+</kw>
+<status status="PASS" starttime="20220527 09:47:48.766" endtime="20220527 09:47:49.780"/>
+</iter>
+<iter>
+<var name="${i}">14</var>
+<kw name="Get current second">
+<var>${current second}</var>
+<kw name="Get Current Date" library="DateTime">
+<var>${current}</var>
+<arg>result_format=datetime</arg>
+<doc>Returns current local or UTC time with an optional increment.</doc>
+<msg timestamp="20220527 09:47:49.782" level="INFO">${current} = 2022-05-27 09:47:49.780811</msg>
+<status status="PASS" starttime="20220527 09:47:49.781" endtime="20220527 09:47:49.782"/>
+</kw>
+<msg timestamp="20220527 09:47:49.783" level="INFO">${current second} = 49</msg>
+<status status="PASS" starttime="20220527 09:47:49.780" endtime="20220527 09:47:49.783"/>
+</kw>
+<if>
+<branch type="IF" condition="${current second} &gt; ${0} and ${current second} &lt;= ${30}">
+<kw name="Log To Console" library="BuiltIn">
+<arg>Low</arg>
+<arg>IF</arg>
+<arg>${current second} &gt; ${30} and ${current second} != ${0}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" starttime="20220527 09:47:49.785" endtime="20220527 09:47:49.785"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>High</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" starttime="20220527 09:47:49.785" endtime="20220527 09:47:49.785"/>
+</kw>
+<status status="NOT RUN" starttime="20220527 09:47:49.785" endtime="20220527 09:47:49.785"/>
+</branch>
+<branch type="ELSE">
+<kw name="Log To Console" library="BuiltIn">
+<arg>jeckpot</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20220527 09:47:49.785" endtime="20220527 09:47:49.786"/>
+</kw>
+<status status="PASS" starttime="20220527 09:47:49.785" endtime="20220527 09:47:49.786"/>
+</branch>
+<status status="PASS" starttime="20220527 09:47:49.783" endtime="20220527 09:47:49.786"/>
+</if>
+<kw name="Exit For Loop If" library="BuiltIn">
+<arg>'${current second}' == '0'</arg>
+<doc>Stops executing the enclosing FOR loop if the ``condition`` is true.</doc>
+<status status="PASS" starttime="20220527 09:47:49.786" endtime="20220527 09:47:49.787"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="FAIL" starttime="20220527 09:47:49.787" endtime="20220527 09:47:50.102"/>
+</kw>
+<status status="FAIL" starttime="20220527 09:47:49.780" endtime="20220527 09:47:50.103"/>
+</iter>
+<status status="FAIL" starttime="20220527 09:47:35.473" endtime="20220527 09:47:50.103"/>
+</for>
+<tag>Quiz1</tag>
+<status status="FAIL" starttime="20220527 09:47:35.470" endtime="20220527 09:47:50.103">Execution terminated by signal</status>
 </test>
-<status status="FAIL" starttime="20220526 18:01:48.031" endtime="20220526 18:02:10.094"/>
+<status status="FAIL" starttime="20220527 09:47:35.060" endtime="20220527 09:47:50.106"/>
 </suite>
 <statistics>
 <total>
 <stat pass="0" fail="1" skip="0">All Tests</stat>
 </total>
 <tag>
-<stat pass="0" fail="1" skip="0">no_structures</stat>
+<stat pass="0" fail="1" skip="0">Quiz1</stat>
 </tag>
 <suite>
-<stat pass="0" fail="1" skip="0" id="s1" name="Tc 01">Tc 01</stat>
+<stat pass="0" fail="1" skip="0" id="s1" name="Testcase">Testcase</stat>
 </suite>
 </statistics>
 <errors>
