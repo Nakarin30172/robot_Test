@@ -1,0 +1,315 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 5.0 (Python 3.8.3 on win32)" generated="20220604 19:48:57.442" rpa="false" schemaversion="3">
+<suite id="s1" name="Test Appium" source="F:\eke\robotfr\week4\ATandroid\test_appium.robot">
+<test id="s1-t1" name="Open app" line="14">
+<kw name="Open Application" library="AppiumLibrary">
+<arg>remote_url=http://localhost:4723/wd/hub</arg>
+<arg>platformName=android</arg>
+<arg>platformVersion=12</arg>
+<arg>deviceName=emulator-5554</arg>
+<arg>app=F:\\eke\\robotfr\\week4\\ATandroid\\7-appmobile.apk</arg>
+<arg>appActivity=net.appsynth.allmember.main.presentation.splash.SplashActivity</arg>
+<doc>Opens a new application to given Appium server.
+Capabilities of appium server, Android and iOS,
+Please check https://github.com/appium/appium/blob/master/docs/en/writing-running-appium/server-args.md
+| *Option*            | *Man.* | *Description*     |
+| remote_url          | Yes    | Appium server url |
+| alias               | no     | alias             |</doc>
+<status status="PASS" starttime="20220604 19:48:57.959" endtime="20220604 19:49:23.082"/>
+</kw>
+<status status="PASS" starttime="20220604 19:48:57.958" endtime="20220604 19:49:23.083"/>
+</test>
+<test id="s1-t2" name="TC1 cancelpopup" line="21">
+<kw name="wait and Tap">
+<arg>${appium_page.btn_name}tutorialCloseImageView</arg>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<arg>${location}</arg>
+<arg>timeout=30s</arg>
+<doc>Waits until element specified with `locator` is visible.</doc>
+<status status="PASS" starttime="20220604 19:49:23.087" endtime="20220604 19:49:33.827"/>
+</kw>
+<kw name="Tap" library="AppiumLibrary">
+<arg>${location}</arg>
+<doc>Tap element identified by ``locator``. </doc>
+<status status="PASS" starttime="20220604 19:49:33.827" endtime="20220604 19:49:34.653"/>
+</kw>
+<status status="PASS" starttime="20220604 19:49:23.086" endtime="20220604 19:49:34.653"/>
+</kw>
+<kw name="wait and Tap">
+<arg>${appium_page.btn_name}mktCancelBtn</arg>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<arg>${location}</arg>
+<arg>timeout=30s</arg>
+<doc>Waits until element specified with `locator` is visible.</doc>
+<status status="PASS" starttime="20220604 19:49:34.655" endtime="20220604 19:49:38.415"/>
+</kw>
+<kw name="Tap" library="AppiumLibrary">
+<arg>${location}</arg>
+<doc>Tap element identified by ``locator``. </doc>
+<status status="PASS" starttime="20220604 19:49:38.415" endtime="20220604 19:49:38.780"/>
+</kw>
+<status status="PASS" starttime="20220604 19:49:34.654" endtime="20220604 19:49:38.780"/>
+</kw>
+<kw name="wait and Tap">
+<arg>${appium_page.btn_name}popupCouponCancelBtn</arg>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<arg>${location}</arg>
+<arg>timeout=30s</arg>
+<doc>Waits until element specified with `locator` is visible.</doc>
+<msg timestamp="20220604 19:50:11.305" level="INFO">&lt;?xml version='1.0' encoding='UTF-8' standalone='yes' ?&gt;
+&lt;hierarchy index="0" class="hierarchy" rotation="0" width="1080" height="2088"&gt;
+  &lt;android.widget.FrameLayout index="0" package="net.appsynth.seveneleven" class="android.widget.FrameLayout" text="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[0,0][1080,2088]" displayed="true"&gt;
+    &lt;android.widget.LinearLayout index="0" package="net.appsynth.seveneleven" class="android.widget.LinearLayout" text="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[0,0][1080,2088]" displayed="true"&gt;
+      &lt;android.widget.FrameLayout index="0" package="net.appsynth.seveneleven" class="android.widget.FrameLayout" text="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[0,0][1080,2088]" displayed="true"&gt;
+        &lt;android.widget.LinearLayout index="0" package="net.appsynth.seveneleven" class="android.widget.LinearLayout" text="" resource-id="net.appsynth.seveneleven:id/action_bar_root" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[0,0][1080,2088]" displayed="true"&gt;
+          &lt;android.widget.FrameLayout index="0" package="net.appsynth.seveneleven" class="android.widget.FrameLayout" text="" resource-id="android:id/content" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[0,0][1080,2088]" displayed="true"&gt;
+            &lt;android.view.ViewGroup index="0" package="net.appsynth.seveneleven" class="android.view.ViewGroup" text="" resource-id="net.appsynth.seveneleven:id/rootViewLayout" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[0,0][1080,2088]" displayed="true"&gt;
+              &lt;android.widget.FrameLayout index="0" package="net.appsynth.seveneleven" class="android.widget.FrameLayout" text="" resource-id="net.appsynth.seveneleven:id/content_container" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[0,0][1080,1953]" displayed="true"&gt;
+                &lt;android.view.ViewGroup index="0" package="net.appsynth.seveneleven" class="android.view.ViewGroup" text="" resource-id="net.appsynth.seveneleven:id/rootView" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[0,0][1080,1953]" displayed="true"&gt;
+                  &lt;android.view.ViewGroup index="0" package="net.appsynth.seveneleven" class="android.view.ViewGroup" text="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[0,0][1080,1953]" displayed="true" /&gt;
+                  &lt;androidx.recyclerview.widget.RecyclerView index="1" package="net.appsynth.seveneleven" class="androidx.recyclerview.widget.RecyclerView" text="" resource-id="net.appsynth.seveneleven:id/homeRcv" checkable="false" checked="false" clickable="false" enabled="true" focusable="true" focused="false" long-clickable="false" password="false" scrollable="true" selected="false" bounds="[0,0][1080,1953]" displayed="true"&gt;
+                    &lt;android.view.ViewGroup index="0" package="net.appsynth.seveneleven" class="android.view.ViewGroup" text="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[0,0][1080,664]" displayed="true"&gt;
+                      &lt;androidx.viewpager.widget.ViewPager index="0" package="net.appsynth.seveneleven" class="androidx.viewpager.widget.ViewPager" text="" resource-id="net.appsynth.seveneleven:id/loopViewpager" checkable="false" checked="false" clickable="false" enabled="true" focusable="true" focused="false" long-clickable="false" password="false" scrollable="true" selected="false" bounds="[0,0][1080,587]" displayed="true"&gt;
+                        &lt;android.view.ViewGroup index="1" package="net.appsynth.seveneleven" class="android.view.ViewGroup" text="" checkable="false" checked="false" clickable="true" enabled="true" focusable="true" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[0,0][1080,587]" displayed="true"&gt;
+                          &lt;android.widget.ImageView index="0" package="net.appsynth.seveneleven" class="android.widget.ImageView" text="" resource-id="net.appsynth.seveneleven:id/homeBannerImg" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[0,0][1080,587]" displayed="true" /&gt;
+                        &lt;/android.view.ViewGroup&gt;
+                      &lt;/androidx.viewpager.widget.ViewPager&gt;
+                      &lt;android.widget.FrameLayout index="1" package="net.appsynth.seveneleven" class="android.widget.FrameLayout" text="" resource-id="net.appsynth.seveneleven:id/homeBannerSlideIndicator" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[473,502][607,515]" displayed="true"&gt;
+                        &lt;android.widget.LinearLayout index="0" package="net.appsynth.seveneleven" class="android.widget.LinearLayout" text="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[473,502][607,515]" displayed="true"&gt;
+                          &lt;android.widget.RelativeLayout index="0" package="net.appsynth.seveneleven" class="android.widget.RelativeLayout" text="" checkable="false" checked="false" clickable="true" enabled="true" focusable="true" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[473,502][496,515]" displayed="true"&gt;
+                            &lt;android.widget.ImageView index="0" package="net.appsynth.seveneleven" class="android.widget.ImageView" text="" resource-id="net.appsynth.seveneleven:id/dot" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[478,502][491,515]" displayed="true" /&gt;
+                          &lt;/android.widget.RelativeLayout&gt;
+                          &lt;android.widget.RelativeLayout index="1" package="net.appsynth.seveneleven" class="android.widget.RelativeLayout" text="" checkable="false" checked="false" clickable="true" enabled="true" focusable="true" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[496,502][561,515]" displayed="true"&gt;
+                            &lt;android.widget.ImageView index="0" package="net.appsynth.seveneleven" class="android.widget.ImageView" text="" resource-id="net.appsynth.seveneleven:id/dot" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[501,502][556,515]" displayed="true" /&gt;
+                          &lt;/android.widget.RelativeLayout&gt;
+                          &lt;android.widget.RelativeLayout index="2" package="net.appsynth.seveneleven" class="android.widget.RelativeLayout" text="" checkable="false" checked="false" clickable="true" enabled="true" focusable="true" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[561,502][584,515]" displayed="true"&gt;
+                            &lt;android.widget.ImageView index="0" package="net.appsynth.seveneleven" class="android.widget.ImageView" text="" resource-id="net.appsynth.seveneleven:id/dot" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[566,502][579,515]" displayed="true" /&gt;
+                          &lt;/android.widget.RelativeLayout&gt;
+                          &lt;android.widget.RelativeLayout index="3" package="net.appsynth.seveneleven" class="android.widget.RelativeLayout" text="" checkable="false" checked="false" clickable="true" enabled="true" focusable="true" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[584,502][607,515]" displayed="true"&gt;
+                            &lt;android.widget.ImageView index="0" package="net.appsynth.seveneleven" class="android.widget.ImageView" text="" resource-id="net.appsynth.seveneleven:id/dot" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[589,502][602,515]" displayed="true" /&gt;
+                          &lt;/android.widget.RelativeLayout&gt;
+                        &lt;/android.widget.LinearLayout&gt;
+                      &lt;/android.widget.FrameLayout&gt;
+                      &lt;android.widget.LinearLayout index="2" package="net.appsynth.seveneleven" class="android.widget.LinearLayout" text="" resource-id="net.appsynth.seveneleven:id/userLevelBannerButton" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[0,521][1080,664]" displayed="true"&gt;
+                        &lt;androidx.cardview.widget.CardView index="0" package="net.appsynth.seveneleven" class="androidx.cardview.widget.CardView" text="" checkable="false" checked="false" clickable="true" enabled="true" focusable="true" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[274,532][806,653]" displayed="true"&gt;
+                          &lt;android.view.ViewGroup index="0" package="net.appsynth.seveneleven" class="android.view.ViewGroup" text="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[274,532][806,653]" displayed="true"&gt;
+                            &lt;android.widget.ImageView index="0" package="net.appsynth.seveneleven" class="android.widget.ImageView" text="" resource-id="net.appsynth.seveneleven:id/sevenLogoRegisterImageView" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[307,560][373,626]" displayed="true" /&gt;
+                            &lt;android.widget.TextView index="1" package="net.appsynth.seveneleven" class="android.widget.TextView" text="ลงทะเบียนใช้งาน" resource-id="net.appsynth.seveneleven:id/sevenRegisterTitleTextView" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[395,550][619,608]" displayed="true" /&gt;
+                            &lt;android.widget.TextView index="2" package="net.appsynth.seveneleven" class="android.widget.TextView" text="รับสิทธิพิเศษก่อนใคร" resource-id="net.appsynth.seveneleven:id/sevenRegisterSubTitleTextView" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[395,592][578,629]" displayed="true" /&gt;
+                            &lt;androidx.cardview.widget.CardView index="3" package="net.appsynth.seveneleven" class="androidx.cardview.widget.CardView" text="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[641,546][789,641]" displayed="true"&gt;
+                              &lt;android.widget.LinearLayout index="0" package="net.appsynth.seveneleven" class="android.widget.LinearLayout" text="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[641,546][789,641]" displayed="true"&gt;
+                                &lt;android.widget.TextView index="0" package="net.appsynth.seveneleven" class="android.widget.TextView" text="คลิก" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[663,557][739,630]" displayed="true" /&gt;
+                                &lt;android.widget.ImageView index="1" package="net.appsynth.seveneleven" class="android.widget.ImageView" text="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[750,579][767,607]" displayed="true" /&gt;
+                              &lt;/android.widget.LinearLayout&gt;
+                            &lt;/androidx.cardview.widget.CardView&gt;
+                          &lt;/android.view.ViewGroup&gt;
+                        &lt;/androidx.cardview.widget.CardView&gt;
+                      &lt;/android.widget.LinearLayout&gt;
+                    &lt;/android.view.ViewGroup&gt;
+                    &lt;android.view.ViewGroup index="1" package="net.appsynth.seveneleven" class="android.view.ViewGroup" text="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[0,664][1080,1106]" displayed="true"&gt;
+                      &lt;androidx.recyclerview.widget.RecyclerView index="0" package="net.appsynth.seveneleven" class="androidx.recyclerview.widget.RecyclerView" text="" resource-id="net.appsynth.seveneleven:id/homeMenuRecycleView" checkable="false" checked="false" clickable="false" enabled="true" focusable="true" focused="false" long-clickable="false" password="false" scrollable="true" selected="false" bounds="[0,664][1080,1067]" displayed="true"&gt;
+                        &lt;android.view.ViewGroup index="0" package="net.appsynth.seveneleven" class="android.view.ViewGroup" text="" resource-id="net.appsynth.seveneleven:id/homeMenuItemRoot" checkable="false" checked="false" clickable="true" enabled="true" focusable="true" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[0,697][238,882]" displayed="true"&gt;
+                          &lt;android.widget.ImageView index="0" package="net.appsynth.seveneleven" class="android.widget.ImageView" text="" resource-id="net.appsynth.seveneleven:id/homeMenuIcon" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[78,697][161,780]" displayed="true" /&gt;
+                          &lt;android.widget.TextView index="1" package="net.appsynth.seveneleven" class="android.widget.TextView" text="7Delivery" resource-id="net.appsynth.seveneleven:id/homeMenuTitle" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[39,791][199,882]" displayed="true" /&gt;
+                        &lt;/android.view.ViewGroup&gt;
+                        &lt;android.view.ViewGroup index="1" package="net.appsynth.seveneleven" class="android.view.ViewGroup" text="" resource-id="net.appsynth.seveneleven:id/homeMenuItemRoot" checkable="false" checked="false" clickable="true" enabled="true" focusable="true" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[238,697][476,882]" displayed="true"&gt;
+                          &lt;android.widget.ImageView index="0" package="net.appsynth.seveneleven" class="android.widget.ImageView" text="" resource-id="net.appsynth.seveneleven:id/homeMenuIcon" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[316,697][399,780]" displayed="true" /&gt;
+                          &lt;android.widget.TextView index="1" package="net.appsynth.seveneleven" class="android.widget.TextView" text="สินเชื่อ" resource-id="net.appsynth.seveneleven:id/homeMenuTitle" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[277,791][437,882]" displayed="true" /&gt;
+                        &lt;/android.view.ViewGroup&gt;
+                        &lt;android.view.ViewGroup index="2" package="net.appsynth.seveneleven" class="android.view.ViewGroup" text="" resource-id="net.appsynth.seveneleven:id/homeMenuItemRoot" checkable="false" checked="false" clickable="true" enabled="true" focusable="true" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[476,697][714,882]" displayed="true"&gt;
+                          &lt;android.widget.ImageView index="0" package="net.appsynth.seveneleven" class="android.widget.ImageView" text="" resource-id="net.appsynth.seveneleven:id/homeMenuIcon" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[554,697][637,780]" displayed="true" /&gt;
+                          &lt;android.widget.TextView index="1" package="net.appsynth.seveneleven" class="android.widget.TextView" text="AO Web" resource-id="net.appsynth.seveneleven:id/homeMenuTitle" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[515,791][675,882]" displayed="true" /&gt;
+                        &lt;/android.view.ViewGroup&gt;
+                        &lt;android.view.ViewGroup index="3" package="net.appsynth.seveneleven" class="android.view.ViewGroup" text="" resource-id="net.appsynth.seveneleven:id/homeMenuItemRoot" checkable="false" checked="false" clickable="true" enabled="true" focusable="true" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[714,697][952,882]" displayed="true"&gt;
+                          &lt;android.widget.ImageView index="0" package="net.appsynth.seveneleven" class="android.widget.ImageView" text="" resource-id="net.appsynth.seveneleven:id/homeMenuIcon" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[792,697][875,780]" displayed="true" /&gt;
+                          &lt;android.widget.TextView index="1" package="net.appsynth.seveneleven" class="android.widget.TextView" text="NEW ALL Deal" resource-id="net.appsynth.seveneleven:id/homeMenuTitle" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[753,791][913,882]" displayed="true" /&gt;
+                        &lt;/android.view.ViewGroup&gt;
+                        &lt;android.view.ViewGroup index="4" package="net.appsynth.seveneleven" class="android.view.ViewGroup" text="" resource-id="net.appsynth.seveneleven:id/homeMenuItemRoot" checkable="false" checked="false" clickable="true" enabled="true" focusable="true" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[952,697][1080,882]" displayed="true"&gt;
+                          &lt;android.widget.ImageView index="0" package="net.appsynth.seveneleven" class="android.widget.ImageView" text="" resource-id="net.appsynth.seveneleven:id/homeMenuIcon" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[1030,697][1080,780]" displayed="true" /&gt;
+                          &lt;android.widget.TextView index="1" package="net.appsynth.seveneleven" class="android.widget.TextView" text="Game Center" resource-id="net.appsynth.seveneleven:id/homeMenuTitle" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[991,791][1080,882]" displayed="true" /&gt;
+                        &lt;/android.view.ViewGroup&gt;
+                        &lt;android.view.ViewGroup index="5" package="net.appsynth.seveneleven" class="android.view.ViewGroup" text="" resource-id="net.appsynth.seveneleven:id/homeMenuItemRoot" checkable="false" checked="false" clickable="true" enabled="true" focusable="true" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[0,882][238,1067]" displayed="true"&gt;
+                          &lt;android.widget.ImageView index="0" package="net.appsynth.seveneleven" class="android.widget.ImageView" text="" resource-id="net.appsynth.seveneleven:id/homeMenuIcon" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[78,882][161,965]" displayed="true" /&gt;
+                          &lt;android.widget.TextView index="1" package="net.appsynth.seveneleven" class="android.widget.TextView" text="7delivery SNP SubCat" resource-id="net.appsynth.seveneleven:id/homeMenuTitle" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[39,976][199,1067]" displayed="true" /&gt;
+                        &lt;/android.view.ViewGroup&gt;
+                        &lt;android.view.ViewGroup index="6" package="net.appsynth.seveneleven" class="android.view.ViewGroup" text="" resource-id="net.appsynth.seveneleven:id/homeMenuItemRoot" checkable="false" checked="false" clickable="true" enabled="true" focusable="true" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[238,882][476,1067]" displayed="true"&gt;
+                          &lt;android.widget.ImageView index="0" package="net.appsynth.seveneleven" class="android.widget.ImageView" text="" resource-id="net.appsynth.seveneleven:id/homeMenuIcon" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[316,882][399,965]" displayed="true" /&gt;
+                          &lt;android.widget.TextView index="1" package="net.appsynth.seveneleven" class="android.widget.TextView" text="ช้อป All Online" resource-id="net.appsynth.seveneleven:id/homeMenuTitle" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[277,976][437,1067]" displayed="true" /&gt;
+                        &lt;/android.view.ViewGroup&gt;
+                        &lt;android.view.ViewGroup index="7" package="net.appsynth.seveneleven" class="android.view.ViewGroup" text="" resource-id="net.appsynth.seveneleven:id/homeMenuItemRoot" checkable="false" checked="false" clickable="true" enabled="true" focusable="true" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[476,882][714,1067]" displayed="true"&gt;
+                          &lt;android.widget.ImageView index="0" package="net.appsynth.seveneleven" class="android.widget.ImageView" text="" resource-id="net.appsynth.seveneleven:id/homeMenuIcon" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[554,882][637,965]" displayed="true" /&gt;
+                          &lt;android.widget.TextView index="1" package="net.appsynth.seveneleven" class="android.widget.TextView" text="คะแนนแลกคูปอง" resource-id="net.appsynth.seveneleven:id/homeMenuTitle" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[515,976][675,1067]" displayed="true" /&gt;
+                        &lt;/android.view.ViewGroup&gt;
+                        &lt;android.view.ViewGroup index="8" package="net.appsynth.seveneleven" class="android.view.ViewGroup" text="" resource-id="net.appsynth.seveneleven:id/homeMenuItemRoot" checkable="false" checked="false" clickable="true" enabled="true" focusable="true" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[714,882][952,1067]" displayed="true"&gt;
+                          &lt;android.widget.ImageView index="0" package="net.appsynth.seveneleven" class="android.widget.ImageView" text="" resource-id="net.appsynth.seveneleven:id/homeMenuIcon" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[792,882][875,965]" displayed="true" /&gt;
+                          &lt;android.widget.TextView index="1" package="net.appsynth.seveneleven" class="android.widget.TextView" text="ซื้อประกัน" resource-id="net.appsynth.seveneleven:id/homeMenuTitle" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[753,976][913,1067]" displayed="true" /&gt;
+                        &lt;/android.view.ViewGroup&gt;
+                        &lt;android.view.ViewGroup index="9" package="net.appsynth.seveneleven" class="android.view.ViewGroup" text="" resource-id="net.appsynth.seveneleven:id/homeMenuItemRoot" checkable="false" checked="false" clickable="true" enabled="true" focusable="true" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[952,882][1080,1067]" displayed="true"&gt;
+                          &lt;android.widget.ImageView index="0" package="net.appsynth.seveneleven" class="android.widget.ImageView" text="" resource-id="net.appsynth.seveneleven:id/homeMenuIcon" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[1030,882][1080,965]" displayed="true" /&gt;
+                          &lt;android.widget.TextView index="1" package="net.appsynth.seveneleven" class="android.widget.TextView" text="สิทธิพิเศษสมาชิก" resource-id="net.appsynth.seveneleven:id/homeMenuTitle" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[991,976][1080,1067]" displayed="true" /&gt;
+                        &lt;/android.view.ViewGroup&gt;
+                      &lt;/androidx.recyclerview.widget.RecyclerView&gt;
+                      &lt;android.view.View index="1" package="net.appsynth.seveneleven" class="android.view.View" text="" resource-id="net.appsynth.seveneleven:id/homeScrollbarIndicator" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[488,1073][593,1106]" displayed="true" /&gt;
+                    &lt;/android.view.ViewGroup&gt;
+                    &lt;android.view.ViewGroup index="2" package="net.appsynth.seveneleven" class="android.view.ViewGroup" text="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[0,1106][1080,1481]" displayed="true"&gt;
+                      &lt;android.widget.FrameLayout index="1" package="net.appsynth.seveneleven" class="android.widget.FrameLayout" text="" resource-id="net.appsynth.seveneleven:id/homeShopNowSectionView" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[0,1106][1080,1437]" displayed="true"&gt;
+                        &lt;android.view.ViewGroup index="0" package="net.appsynth.seveneleven" class="android.view.ViewGroup" text="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[17,1128][1063,1437]" displayed="true"&gt;
+                          &lt;android.widget.ImageView index="0" package="net.appsynth.seveneleven" class="android.widget.ImageView" text="" resource-id="net.appsynth.seveneleven:id/shopNowImageView1" checkable="false" checked="false" clickable="true" enabled="true" focusable="true" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[17,1128][347,1437]" displayed="true" /&gt;
+                          &lt;android.widget.ImageView index="1" package="net.appsynth.seveneleven" class="android.widget.ImageView" text="" resource-id="net.appsynth.seveneleven:id/shopNowImageView2" checkable="false" checked="false" clickable="true" enabled="true" focusable="true" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[375,1128][705,1437]" displayed="true" /&gt;
+                          &lt;android.widget.ImageView index="2" package="net.appsynth.seveneleven" class="android.widget.ImageView" text="" resource-id="net.appsynth.seveneleven:id/shopNowImageView3" checkable="false" checked="false" clickable="true" enabled="true" focusable="true" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[733,1128][1063,1437]" displayed="true" /&gt;
+                        &lt;/android.view.ViewGroup&gt;
+                      &lt;/android.widget.FrameLayout&gt;
+                      &lt;android.view.View index="2" package="net.appsynth.seveneleven" class="android.view.View" text="" resource-id="net.appsynth.seveneleven:id/homeShopNowSeparator" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[0,1459][1080,1481]" displayed="true" /&gt;
+                    &lt;/android.view.ViewGroup&gt;
+                    &lt;android.view.ViewGroup index="3" package="net.appsynth.seveneleven" class="android.view.ViewGroup" text="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[0,1481][1080,1953]" displayed="true"&gt;
+                      &lt;android.widget.TextView index="0" package="net.appsynth.seveneleven" class="android.widget.TextView" text="โปรโมชั่นและสิทธิพิเศษ" resource-id="net.appsynth.seveneleven:id/homePromotionTitle" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[55,1503][398,1569]" displayed="true" /&gt;
+                      &lt;androidx.recyclerview.widget.RecyclerView index="1" package="net.appsynth.seveneleven" class="androidx.recyclerview.widget.RecyclerView" text="" resource-id="net.appsynth.seveneleven:id/homeSpecialPromotionsList" checkable="false" checked="false" clickable="false" enabled="true" focusable="true" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[28,1580][1052,1953]" displayed="true"&gt;
+                        &lt;android.view.ViewGroup index="0" package="net.appsynth.seveneleven" class="android.view.ViewGroup" text="" checkable="false" checked="false" clickable="true" enabled="true" focusable="true" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[28,1580][1052,1952]" displayed="true"&gt;
+                          &lt;android.widget.ImageView index="0" package="net.appsynth.seveneleven" class="android.widget.ImageView" text="" resource-id="net.appsynth.seveneleven:id/homeSpecialPromotionImage" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[28,1580][1052,1952]" displayed="true" /&gt;
+                        &lt;/android.view.ViewGroup&gt;
+                      &lt;/androidx.recyclerview.widget.RecyclerView&gt;
+                    &lt;/android.view.ViewGroup&gt;
+                  &lt;/androidx.recyclerview.widget.RecyclerView&gt;
+                  &lt;android.widget.LinearLayout index="2" package="net.appsynth.seveneleven" class="android.widget.LinearLayout" text="" resource-id="net.appsynth.seveneleven:id/toolbarLayout" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[0,0][1080,283]" displayed="true"&gt;
+                    &lt;android.view.ViewGroup index="0" package="net.appsynth.seveneleven" class="android.view.ViewGroup" text="" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[0,0][1080,283]" displayed="true"&gt;
+                      &lt;android.view.ViewGroup index="0" package="net.appsynth.seveneleven" class="android.view.ViewGroup" text="" resource-id="net.appsynth.seveneleven:id/homeMotion" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[0,0][1080,283]" displayed="true"&gt;
+                        &lt;android.widget.ImageView index="1" package="net.appsynth.seveneleven" class="android.widget.ImageView" text="" resource-id="net.appsynth.seveneleven:id/logoSevenImage" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[0,96][341,184]" displayed="true" /&gt;
+                        &lt;android.widget.ImageView index="3" package="net.appsynth.seveneleven" class="android.widget.ImageView" text="" resource-id="net.appsynth.seveneleven:id/toolbarMapAction" checkable="false" checked="false" clickable="true" enabled="true" focusable="true" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[720,88][824,192]" displayed="true" /&gt;
+                        &lt;android.view.ViewGroup index="5" package="net.appsynth.seveneleven" class="android.view.ViewGroup" text="" resource-id="net.appsynth.seveneleven:id/toolbarChatAction" checkable="false" checked="false" clickable="true" enabled="true" focusable="true" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[830,88][934,192]" displayed="true"&gt;
+                          &lt;android.widget.ImageView index="0" package="net.appsynth.seveneleven" class="android.widget.ImageView" text="" resource-id="net.appsynth.seveneleven:id/chatIcon" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[849,107][915,173]" displayed="true" /&gt;
+                          &lt;android.widget.ImageView index="1" package="net.appsynth.seveneleven" class="android.widget.ImageView" text="" resource-id="net.appsynth.seveneleven:id/chatIconBadge" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[898,107][915,124]" displayed="true" /&gt;
+                        &lt;/android.view.ViewGroup&gt;
+                        &lt;android.widget.ImageView index="7" package="net.appsynth.seveneleven" class="android.widget.ImageView" text="" resource-id="net.appsynth.seveneleven:id/avatarNotLoggedImage" checkable="false" checked="false" clickable="true" enabled="true" focusable="true" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[940,88][1044,192]" displayed="true" /&gt;
+                      &lt;/android.view.ViewGroup&gt;
+                    &lt;/android.view.ViewGroup&gt;
+                  &lt;/android.widget.LinearLayout&gt;
+                  &lt;android.widget.FrameLayout index="3" package="net.appsynth.seveneleven" class="android.widget.FrameLayout" text="" resource-id="net.appsynth.seveneleven:id/floatingIconImageView" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[0,154][1080,1953]" displayed="true"&gt;
+                    &lt;android.view.ViewGroup index="0" package="net.appsynth.seveneleven" class="android.view.ViewGroup" text="" resource-id="net.appsynth.seveneleven:id/floatingRootView" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[0,154][1080,1953]" displayed="true"&gt;
+                      &lt;android.view.ViewGroup index="0" package="net.appsynth.seveneleven" class="android.view.ViewGroup" text="" resource-id="net.appsynth.seveneleven:id/floatingGroupView" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[832,1705][1080,1953]" displayed="true"&gt;
+                        &lt;android.widget.ImageView index="0" package="net.appsynth.seveneleven" class="android.widget.ImageView" text="" resource-id="net.appsynth.seveneleven:id/floatingIconImageView" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[832,1705][1080,1953]" displayed="true" /&gt;
+                        &lt;android.widget.ImageView index="1" package="net.appsynth.seveneleven" class="android.widget.ImageView" text="" resource-id="net.appsynth.seveneleven:id/floatingCloseImageView" checkable="false" checked="false" clickable="true" enabled="true" focusable="true" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[1014,1705][1080,1771]" displayed="true" /&gt;
+                      &lt;/android.view.ViewGroup&gt;
+                    &lt;/android.view.ViewGroup&gt;
+                  &lt;/android.widget.FrameLayout&gt;
+                &lt;/android.view.ViewGroup&gt;
+              &lt;/android.widget.FrameLayout&gt;
+              &lt;android.view.View index="1" package="net.appsynth.seveneleven" class="android.view.View" text="" resource-id="net.appsynth.seveneleven:id/tabBarBgLeft" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[0,1895][437,2088]" displayed="true" /&gt;
+              &lt;android.view.View index="2" package="net.appsynth.seveneleven" class="android.view.View" text="" resource-id="net.appsynth.seveneleven:id/mainTabHome" checkable="false" checked="false" clickable="true" enabled="true" focusable="true" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[0,1953][216,2088]" displayed="true" /&gt;
+              &lt;android.view.View index="3" package="net.appsynth.seveneleven" class="android.view.View" text="" resource-id="net.appsynth.seveneleven:id/tabBarLine" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[0,1953][1080,1956]" displayed="true" /&gt;
+              &lt;android.widget.ImageView index="4" package="net.appsynth.seveneleven" class="android.widget.ImageView" text="" resource-id="net.appsynth.seveneleven:id/mainTabHomeImg" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="true" bounds="[0,1959][216,2025]" displayed="true" /&gt;
+              &lt;android.view.View index="5" package="net.appsynth.seveneleven" class="android.view.View" text="" resource-id="net.appsynth.seveneleven:id/mainTabHomeIndicator" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="true" bounds="[97,1953][119,1963]" displayed="true" /&gt;
+              &lt;android.view.View index="6" package="net.appsynth.seveneleven" class="android.view.View" text="" resource-id="net.appsynth.seveneleven:id/mainTabAllMemberIndicator" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[313,1953][335,1963]" displayed="true" /&gt;
+              &lt;android.view.View index="7" package="net.appsynth.seveneleven" class="android.view.View" text="" resource-id="net.appsynth.seveneleven:id/mainTabOtherIndicator" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[961,1953][983,1963]" displayed="true" /&gt;
+              &lt;android.widget.ImageView index="8" package="net.appsynth.seveneleven" class="android.widget.ImageView" text="" resource-id="net.appsynth.seveneleven:id/mainTabAllMemberImg" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[216,1966][432,2018]" displayed="true" /&gt;
+              &lt;android.widget.ImageView index="9" package="net.appsynth.seveneleven" class="android.widget.ImageView" text="" resource-id="net.appsynth.seveneleven:id/mainTabWalletImg" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[432,1957][648,2028]" displayed="true" /&gt;
+              &lt;android.widget.TextView index="10" package="net.appsynth.seveneleven" class="android.widget.TextView" text="หน้าหลัก" resource-id="net.appsynth.seveneleven:id/mainTabHomeText" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[66,2044][150,2085]" displayed="true" /&gt;
+              &lt;android.view.View index="11" package="net.appsynth.seveneleven" class="android.view.View" text="" resource-id="net.appsynth.seveneleven:id/mainTabAllMember" checkable="false" checked="false" clickable="true" enabled="true" focusable="true" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[216,1953][432,2088]" displayed="true" /&gt;
+              &lt;android.widget.TextView index="12" package="net.appsynth.seveneleven" class="android.widget.TextView" text="สมาชิก" resource-id="net.appsynth.seveneleven:id/mainTabAllMemberText" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[291,2044][358,2085]" displayed="true" /&gt;
+              &lt;android.view.View index="13" package="net.appsynth.seveneleven" class="android.view.View" text="" resource-id="net.appsynth.seveneleven:id/mainTabWallet" checkable="false" checked="false" clickable="true" enabled="true" focusable="true" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[432,1923][648,2088]" displayed="true" /&gt;
+              &lt;android.view.View index="14" package="net.appsynth.seveneleven" class="android.view.View" text="" resource-id="net.appsynth.seveneleven:id/tabBarBgCenter" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[437,1895][643,2088]" displayed="true" /&gt;
+              &lt;android.widget.TextView index="15" package="net.appsynth.seveneleven" class="android.widget.TextView" text="จ่ายเงิน/เติมเงิน" resource-id="net.appsynth.seveneleven:id/mainTabWalletText" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[464,2044][616,2085]" displayed="true" /&gt;
+              &lt;android.view.View index="16" package="net.appsynth.seveneleven" class="android.view.View" text="" resource-id="net.appsynth.seveneleven:id/mainTabWalletIndicator" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[471,1936][609,2074]" displayed="true" /&gt;
+              &lt;android.view.View index="17" package="net.appsynth.seveneleven" class="android.view.View" text="" resource-id="net.appsynth.seveneleven:id/tabBarBgRight" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[643,1895][1080,2088]" displayed="true" /&gt;
+              &lt;android.view.View index="18" package="net.appsynth.seveneleven" class="android.view.View" text="" resource-id="net.appsynth.seveneleven:id/mainTabCoupon" checkable="false" checked="false" clickable="true" enabled="true" focusable="true" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[648,1953][864,2088]" displayed="true" /&gt;
+              &lt;android.view.View index="19" package="net.appsynth.seveneleven" class="android.view.View" text="" resource-id="net.appsynth.seveneleven:id/mainTabCouponIndicator" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[745,1953][767,1963]" displayed="true" /&gt;
+              &lt;android.widget.ImageView index="20" package="net.appsynth.seveneleven" class="android.widget.ImageView" text="" resource-id="net.appsynth.seveneleven:id/mainTabCouponImg" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[648,1966][864,2018]" displayed="true" /&gt;
+              &lt;android.view.View index="21" package="net.appsynth.seveneleven" class="android.view.View" text="" resource-id="net.appsynth.seveneleven:id/mainTabOther" checkable="false" checked="false" clickable="true" enabled="true" focusable="true" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[864,1953][1080,2088]" displayed="true" /&gt;
+              &lt;android.widget.ImageView index="22" package="net.appsynth.seveneleven" class="android.widget.ImageView" text="" resource-id="net.appsynth.seveneleven:id/mainTabOtherImg" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[864,1976][1080,2008]" displayed="true" /&gt;
+              &lt;android.widget.TextView index="23" package="net.appsynth.seveneleven" class="android.widget.TextView" text="คูปองของฉัน" resource-id="net.appsynth.seveneleven:id/mainTabCouponText" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[694,2044][819,2085]" displayed="true" /&gt;
+              &lt;android.widget.TextView index="24" package="net.appsynth.seveneleven" class="android.widget.TextView" text="อื่นๆ" resource-id="net.appsynth.seveneleven:id/mainTabOtherText" checkable="false" checked="false" clickable="false" enabled="true" focusable="false" focused="false" long-clickable="false" password="false" scrollable="false" selected="false" bounds="[949,2044][995,2085]" displayed="true" /&gt;
+            &lt;/android.view.ViewGroup&gt;
+          &lt;/android.widget.FrameLayout&gt;
+        &lt;/android.widget.LinearLayout&gt;
+      &lt;/android.widget.FrameLayout&gt;
+    &lt;/android.widget.LinearLayout&gt;
+  &lt;/android.widget.FrameLayout&gt;
+&lt;/hierarchy&gt;</msg>
+<kw name="Capture Page Screenshot" library="AppiumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<msg timestamp="20220604 19:50:12.889" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="appium-screenshot-1.png"&gt;&lt;img src="appium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20220604 19:50:11.315" endtime="20220604 19:50:12.889"/>
+</kw>
+<msg timestamp="20220604 19:50:12.890" level="FAIL">Element locator 'id=net.appsynth.seveneleven:id/popupCouponCancelBtn' did not match any elements after 30 seconds</msg>
+<status status="FAIL" starttime="20220604 19:49:38.785" endtime="20220604 19:50:12.892"/>
+</kw>
+<kw name="Tap" library="AppiumLibrary">
+<arg>${location}</arg>
+<doc>Tap element identified by ``locator``. </doc>
+<status status="NOT RUN" starttime="20220604 19:50:12.892" endtime="20220604 19:50:12.893"/>
+</kw>
+<status status="FAIL" starttime="20220604 19:49:38.784" endtime="20220604 19:50:12.893"/>
+</kw>
+<status status="FAIL" starttime="20220604 19:49:23.085" endtime="20220604 19:50:12.897">Element locator 'id=net.appsynth.seveneleven:id/popupCouponCancelBtn' did not match any elements after 30 seconds</status>
+</test>
+<test id="s1-t3" name="Tc2" line="25">
+<kw name="wait and Tap">
+<arg>xpath=//android.widget.TextView[@resource-id='net.appsynth.seveneleven:id/homeMenuTitle' and @text='ช้อป All Online']</arg>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<arg>${location}</arg>
+<arg>timeout=30s</arg>
+<doc>Waits until element specified with `locator` is visible.</doc>
+<status status="PASS" starttime="20220604 19:50:12.954" endtime="20220604 19:50:14.991"/>
+</kw>
+<kw name="Tap" library="AppiumLibrary">
+<arg>${location}</arg>
+<doc>Tap element identified by ``locator``. </doc>
+<status status="PASS" starttime="20220604 19:50:14.991" endtime="20220604 19:50:15.811"/>
+</kw>
+<status status="PASS" starttime="20220604 19:50:12.939" endtime="20220604 19:50:15.811"/>
+</kw>
+<kw name="wait and Tap">
+<arg>xpath=//android.widget.TextView[@content-desc="ค้นหา"]</arg>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<arg>${location}</arg>
+<arg>timeout=30s</arg>
+<doc>Waits until element specified with `locator` is visible.</doc>
+<status status="PASS" starttime="20220604 19:50:15.812" endtime="20220604 19:50:18.852"/>
+</kw>
+<kw name="Tap" library="AppiumLibrary">
+<arg>${location}</arg>
+<doc>Tap element identified by ``locator``. </doc>
+<status status="PASS" starttime="20220604 19:50:18.852" endtime="20220604 19:50:19.994"/>
+</kw>
+<status status="PASS" starttime="20220604 19:50:15.812" endtime="20220604 19:50:19.995"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="AppiumLibrary">
+<arg>${appium_page.btn_name}search</arg>
+<arg>timeout=30s</arg>
+<doc>Waits until element specified with `locator` is visible.</doc>
+<kw name="Capture Page Screenshot" library="AppiumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<msg timestamp="20220604 19:50:24.304" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="appium-screenshot-2.png"&gt;&lt;img src="appium-screenshot-2.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20220604 19:50:23.316" endtime="20220604 19:50:24.304"/>
+</kw>
+<msg timestamp="20220604 19:50:24.304" level="FAIL">StaleElementReferenceException: Message: Cached elements 'By.id: net.appsynth.seveneleven:id/search' do not exist in DOM anymore
+</msg>
+<status status="FAIL" starttime="20220604 19:50:19.995" endtime="20220604 19:50:24.320"/>
+</kw>
+<kw name="Input Text" library="AppiumLibrary">
+<arg>id=net.appsynth.seveneleven:id/search</arg>
+<arg>smooth e</arg>
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<status status="NOT RUN" starttime="20220604 19:50:24.324" endtime="20220604 19:50:24.324"/>
+</kw>
+<kw name="wait and Tap">
+<arg>xpath=//android.widget.TextView[@resource-id='net.appsynth.seveneleven:id/searchSuggestionItem' and @text='smooth e']</arg>
+<status status="NOT RUN" starttime="20220604 19:50:24.324" endtime="20220604 19:50:24.324"/>
+</kw>
+<status status="FAIL" starttime="20220604 19:50:12.922" endtime="20220604 19:50:24.328">StaleElementReferenceException: Message: Cached elements 'By.id: net.appsynth.seveneleven:id/search' do not exist in DOM anymore
+</status>
+</test>
+<status status="FAIL" starttime="20220604 19:48:57.452" endtime="20220604 19:50:24.358"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="2" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="2" skip="0" id="s1" name="Test Appium">Test Appium</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
